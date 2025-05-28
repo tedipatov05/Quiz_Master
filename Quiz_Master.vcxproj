@@ -128,6 +128,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Quiz_Master.cpp" />
+    <ClCompile Include="source\MyString.cpp" />
+    <ClCompile Include="source\Utils.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="headers\Constants.h" />
+    <ClInclude Include="headers\MyString.h" />
+    <ClInclude Include="headers\Utils.h" />
+    <ClInclude Include="headers\Vector.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
