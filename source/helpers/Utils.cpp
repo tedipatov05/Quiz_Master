@@ -1,5 +1,5 @@
-#include "../headers/Utils.h"
-#include "../headers/Constants.h"
+#include "../../headers/helpers/Utils.h"
+#include "../../headers/helpers/Constants.h"
 #include <iostream>
 #pragma warning(disable:4996)
 
@@ -35,6 +35,21 @@ bool stringCmp(const char* str1, const char* str2, size_t size) {
 		}
 	}
 	return true;
+}
+
+Vector<MyString> split(const MyString& str, const MyString& delimiter) {
+	Vector<MyString> result;
+	size_t start = 0;
+	size_t end = str.find(delimiter.data(), start);
+
+	while (end != std::string::npos) {
+		result.push_back(str.substr(start, end - start));
+		start = end + delimiter.size();
+		end = str.find(delimiter.data(), start);
+	}
+
+	result.push_back(str.substr(start, end));
+	return result;
 }
 
 int toInt(const MyString& str) {

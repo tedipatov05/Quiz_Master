@@ -2,6 +2,7 @@
 #include <fstream>
 
 
+
 class MyString {
 public:
 

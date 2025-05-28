@@ -13,30 +13,54 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Questions">
+      <UniqueIdentifier>{e18e812f-c418-417e-9363-efa5b6687f73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Questions">
+      <UniqueIdentifier>{37338e7f-a22d-49ac-9a2b-62c55dc05b1c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Quiz_Master.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\MyString.cpp">
+    <ClCompile Include="source\helpers\MyString.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Utils.cpp">
+    <ClCompile Include="source\helpers\Utils.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\questions\Question.cpp">
+      <Filter>Source Files\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="source\questions\TrueOrFalseQuestion.cpp">
+      <Filter>Source Files\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="source\questions\SingleChoiceQuestion.cpp">
+      <Filter>Source Files\Questions</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="headers\Constants.h">
+    <ClInclude Include="headers\helpers\Constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\MyString.h">
+    <ClInclude Include="headers\helpers\MyString.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Utils.h">
+    <ClInclude Include="headers\helpers\Utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Vector.hpp">
+    <ClInclude Include="headers\helpers\Vector.hpp">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\Question.h">
+      <Filter>Header Files\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\TrueOrFlaseQuestion.h">
+      <Filter>Header Files\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\SingleChoiceQuestion.h">
+      <Filter>Header Files\Questions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
