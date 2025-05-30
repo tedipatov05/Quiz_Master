@@ -1,2 +1,6 @@
 ﻿  Quiz_Master.cpp
+D:\ФМИ\Quiz_Master\Quiz_Master\Quiz_Master.cpp(61,52): warning C4566: character represented by universal-character-name '\u2212' cannot be represented in the current code page (1252)
+  MatchingPairsQuestion.cpp
+D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\MatchingPairsQuestion.cpp(103,12): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
   Quiz_Master.vcxproj -> D:\ФМИ\Quiz_Master\x64\Debug\Quiz_Master.exe

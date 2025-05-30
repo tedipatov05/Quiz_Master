@@ -26,9 +26,19 @@ void TrueOrFalseQuestion::read() {
 	std::cout << "Enter points: ";
 	std::cin >> this->_points;
 }
-void TrueOrFalseQuestion::print() const {
-	std::cout << this->_desription << std::endl;
+void TrueOrFalseQuestion::print(std::ostream& os) const {
+	os << this->_desription << std::endl;
 }
+
+Question* TrueOrFalseQuestion::clone() const{
+	return new TrueOrFalseQuestion(*this);
+}
+
+bool TrueOrFalseQuestion::isCorrectAnswer(const MyString& userAnswer) const{
+	return this->_correctAnswer.toLower() == userAnswer.toLower();
+}
+
+
 
 
 

@@ -8,6 +8,7 @@ public:
 
 	MyString();
 	MyString(const char* str);
+	MyString(const char ch);
 	MyString(const MyString& str);
 	MyString& operator=(const MyString& str);
 	~MyString();
@@ -47,6 +48,7 @@ public:
 
 	void readFromBinaryFile(std::ifstream& ifs);
 	void writeToBinaryFile(std::ofstream& ofs) const;
+	MyString toLower() const;
 
 	friend std::ostream& operator<<(std::ostream& os, const MyString& str);
 	friend std::istream& operator>>(std::istream& is, MyString& str);

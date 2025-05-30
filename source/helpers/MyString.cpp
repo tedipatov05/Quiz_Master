@@ -1,6 +1,6 @@
-#include "../headers/MyString.h"
-#include "../headers/Utils.h"
-#include "../headers/Constants.h"
+#include "../../headers/helpers/MyString.h"
+#include "../../headers/helpers/Utils.h"
+#include "../../headers/helpers/MyString.h"
 #include <istream>
 #pragma warning(disable : 4996) // Disable deprecation warning for strcpy
 
@@ -30,6 +30,16 @@ MyString::MyString(const char* str) {
 	this->_size = std::strlen(str);
 	copyString(this->_data, str, this->capacity());
 }
+
+MyString::MyString(const char ch){
+	this->_size = 1;
+	this->_capacity = dataToAllocByStringLen(this->size());
+	this->_data = new char[this->capacity()] {'\0'};
+	this->_data[0] = ch;
+
+
+}
+
 
 MyString::MyString(const MyString& str) : _capacity(str.capacity()), _size(str.size()) {
 	copyDynamic(str);
@@ -66,6 +76,15 @@ MyString& MyString::operator+=(const MyString& str) {
 	return *this;
 
 
+}
+
+MyString MyString::toLower() const{
+	MyString res = *this;
+	for (size_t i = 0; i < res.size(); i++){
+		res[i] = std::tolower(res[i]);
+	}
+
+	return res;
 }
 
 

@@ -39,6 +39,15 @@
     <ClCompile Include="source\questions\SingleChoiceQuestion.cpp">
       <Filter>Source Files\Questions</Filter>
     </ClCompile>
+    <ClCompile Include="source\questions\ShortAnswerQuestion.cpp">
+      <Filter>Source Files\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="source\questions\MatchingPairsQuestion.cpp">
+      <Filter>Source Files\Questions</Filter>
+    </ClCompile>
+    <ClCompile Include="source\questions\QuestionsRepository.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -61,6 +70,18 @@
     </ClInclude>
     <ClInclude Include="headers\questions\SingleChoiceQuestion.h">
       <Filter>Header Files\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\ShortAnswerQuestion.h">
+      <Filter>Header Files\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\helpers\Pair.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\MatchingPairsQuestions.h">
+      <Filter>Header Files\Questions</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\questions\QuestionsRepository.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -30,13 +30,13 @@ void SingleChoiceQuestion::read(){
 	std::cout << std::endl;
 }
 
-void SingleChoiceQuestion::print() const{
-	std::cout << this->_desription << "(" << this->_points << " points)" << std::endl;
+void SingleChoiceQuestion::print(std::ostream& os) const{
+	os << this->_desription << "(" << this->_points << " points)" << std::endl;
 
 	char ch = 'A';
 	for (size_t i = 0; i < this->_answers.size(); i++){
-		std::cout << "	  ";
-		std::cout << ch << ".  " << this->_answers[i] << std::endl;
+		os << "	  ";
+		os << ch << ".  " << this->_answers[i] << std::endl;
 		ch++;
 	}
 }
@@ -67,6 +67,16 @@ void SingleChoiceQuestion::writeToBinaryFile(std::ofstream& ofs) const{
 
 	
 }
+
+Question* SingleChoiceQuestion::clone() const{
+	return new SingleChoiceQuestion(*this);
+}
+
+bool SingleChoiceQuestion::isCorrectAnswer(const MyString& userAnswer) const{
+	return this->_correctAnswer.toLower() == userAnswer.toLower();
+}
+
+
 
 
 

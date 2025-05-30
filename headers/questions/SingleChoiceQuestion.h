@@ -8,10 +8,12 @@ public:
 	SingleChoiceQuestion() = default;
 	SingleChoiceQuestion(const MyString& description, int points, const Vector<MyString>& answers, const MyString& correctAnswer);
 
-	virtual void readFromBinaryFile(std::ifstream& ifs) override;
-	virtual void writeToBinaryFile(std::ofstream& ofs) const override;
-	virtual void print() const override;
-	virtual void read() override;
+	void readFromBinaryFile(std::ifstream& ifs) override;
+	void writeToBinaryFile(std::ofstream& ofs) const override;
+	void print(std::ostream& os) const override;
+	void read() override;
+	Question* clone() const override;
+	bool isCorrectAnswer(const MyString& userAnswer) const;
 
 private:
 	Vector<MyString> _answers;

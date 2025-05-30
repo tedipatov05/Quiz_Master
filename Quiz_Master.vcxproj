@@ -127,21 +127,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\questions\QuestionsRepository.cpp" />
     <ClCompile Include="Quiz_Master.cpp" />
     <ClCompile Include="source\helpers\MyString.cpp" />
     <ClCompile Include="source\helpers\Utils.cpp" />
+    <ClCompile Include="source\questions\MatchingPairsQuestion.cpp" />
     <ClCompile Include="source\questions\Question.cpp" />
+    <ClCompile Include="source\questions\ShortAnswerQuestion.cpp" />
     <ClCompile Include="source\questions\SingleChoiceQuestion.cpp" />
     <ClCompile Include="source\questions\TrueOrFalseQuestion.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h" />
     <ClInclude Include="headers\helpers\MyString.h" />
+    <ClInclude Include="headers\helpers\Pair.hpp" />
     <ClInclude Include="headers\helpers\Utils.h" />
     <ClInclude Include="headers\helpers\Vector.hpp" />
+    <ClInclude Include="headers\questions\MatchingPairsQuestions.h" />
     <ClInclude Include="headers\questions\Question.h" />
+    <ClInclude Include="headers\questions\ShortAnswerQuestion.h" />
     <ClInclude Include="headers\questions\SingleChoiceQuestion.h" />
     <ClInclude Include="headers\questions\TrueOrFlaseQuestion.h" />
+    <ClInclude Include="headers\questions\QuestionsRepository.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
