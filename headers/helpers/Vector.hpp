@@ -46,6 +46,7 @@ public:
 	T& at(size_t index);
 
 	void remove_at(size_t index);
+	void remove(const T& value);
 	void insert_at(size_t index, const T& value);
 	void insert_range(size_t index, const T* values, size_t size);
 	void swap(Vector& other);
@@ -126,7 +127,6 @@ void Vector<T>::freeDynamic() {
 }
 
 template <typename T>
-
 bool Vector<T>::is_empty() const {
 	return this->_size == 0;
 }
@@ -172,6 +172,15 @@ void Vector<T>::reserve(size_t newCapacity) {
 		this->_capacity = newCapacity;
 	}
 }
+
+template <typename T>
+void Vector<T>::remove(const T& value){
+	int index = index_of(value);
+	if (index != -1){
+		this->remove_at(index);
+	}
+}
+
 
 template <typename T>
 void Vector<T>::shrink_to_fit() {

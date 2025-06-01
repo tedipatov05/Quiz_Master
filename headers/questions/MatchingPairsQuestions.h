@@ -16,6 +16,8 @@ public:
 	void readFromBinaryFile(std::ifstream& ifs) override;
 	void writeToBinaryFile(std::ofstream& ofs) const override;
 	Question* clone() const override;
+	QuestionType type() const override;
+
 	int countCorrectAnswers(const Vector<Pair<MyString, MyString>>& userAnswer);
 
 private:

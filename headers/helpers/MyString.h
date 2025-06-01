@@ -36,6 +36,7 @@ public:
 
 	MyString& replace(size_t pos, size_t count, const char* str);
 	void copy(char*& dest, size_t count, size_t pos = 0) const;
+	int countCharacter(char ch) const;
 
 	int find(size_t pos = 0) const;
 	int find(const char* str, size_t pos = 0) const;
@@ -45,6 +46,7 @@ public:
 	MyString& insert(size_t pos, const MyString& str);
 	MyString& insert(size_t pos, const char* str);
 	MyString& insert(size_t pos, const char* str, size_t count);
+
 
 	void readFromBinaryFile(std::ifstream& ifs);
 	void writeToBinaryFile(std::ofstream& ofs) const;

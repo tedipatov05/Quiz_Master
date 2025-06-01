@@ -340,6 +340,19 @@ int MyString::find(const char* str, size_t pos) const {
 	return std::string::npos;
 }
 
+int MyString::countCharacter(char ch) const{
+
+	int counter = 0;
+	for (size_t i = 0; i<this->size(); i++){
+		if (this->_data[i] == ch){
+			counter++;
+		}
+	}
+
+	return counter;
+
+}
+
 
 
 
@@ -408,7 +421,7 @@ std::ostream& operator<<(std::ostream& os, const MyString& str) {
 std::istream& operator>>(std::istream& is, MyString& str) {
 
 	char buffer[BUFFER_SIZE];
-	is >> buffer;
+	is.getline(buffer, BUFFER_SIZE);
 	size_t bufferStringSize = std::strlen(buffer);
 
 	if (bufferStringSize > str.capacity()) {
@@ -416,6 +429,8 @@ std::istream& operator>>(std::istream& is, MyString& str) {
 	}
 
 	std::strcpy(str._data, buffer);
+	str._size = bufferStringSize;
+
 	return is;
 
 }

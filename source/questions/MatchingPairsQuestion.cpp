@@ -12,10 +12,13 @@ MatchingPairsQuestion::MatchingPairsQuestion(const MyString& description, int po
 
 }
 
+QuestionType MatchingPairsQuestion::type() const {
+	return QuestionType::MatchingPairs;
+}
+
 void MatchingPairsQuestion::read() {
 	std::cout << "Enter description: ";
 	std::cin >> this->_desription;
-	std::cout << std::endl;
 
 	this->readColumn('A', _leftColumn, "left column");
 	this->readColumn('a', _rightColumn, "right column");
@@ -31,12 +34,14 @@ void MatchingPairsQuestion::readColumn(char ch, Vector<MyString>& column, const 
 	size_t cout;
 	std::cout << "Enter " << columnType << " column values count: ";
 	std::cin >> cout;
-	std::cout << std::endl;
+
+	std::cin.ignore();
 
 	for (size_t i = 0; i < cout; i++) {
-		std::cout << "Enter value " << ch << ":";
-		std::cin >> column[i];
-		std::cout << std::endl;
+		std::cout << "Enter value " << ch << ": ";
+		MyString str;
+		std::cin >> str;
+		column.push_back(str);
 		ch++;
 	}
 
@@ -47,7 +52,6 @@ void MatchingPairsQuestion::readCorrectAnswers() {
 	std::cout << "Enter correct answers: ";
 	std::cin.getline(pairs, BUFFER_SIZE);
 
-	Vector<Pair<MyString, MyString>> pairsVector;
 	std::stringstream ss(pairs);
 	char ch;
 	char first, second;
@@ -57,11 +61,9 @@ void MatchingPairsQuestion::readCorrectAnswers() {
 
 			Pair<MyString, MyString> pair(first, second);
 
-			pairsVector.push_back(pair);
+			_correctAnswer.push_back(pair);
 		}
 	}
-
-	std::cout << std::endl;
 
 }
 
@@ -77,6 +79,9 @@ void MatchingPairsQuestion::readFromBinaryFile(std::ifstream& ifs) {
 }
 
 void MatchingPairsQuestion::writeToBinaryFile(std::ofstream& ofs) const {
+	QuestionType questionType = this->type();
+	ofs.write((const char*)&questionType, sizeof(questionType));
+
 	this->_desription.writeToBinaryFile(ofs);
 
 	writeColumnToBinary(ofs, this->_leftColumn);
@@ -109,9 +114,9 @@ void MatchingPairsQuestion::print(std::ostream& os) const {
 
 
 	for (size_t i = 0; i < count; i++) {
-		MyString leftStr = i < leftSize ? this->_leftColumn[i] : "";
-		MyString rightStr = i < rightSize ? this->_rightColumn[i] : "";
-		std::cout << std::left << std::setw(20) << left << "." << leftStr << right << "." << rightStr << "\n";
+		MyString leftStr = i < leftSize ? MyString(left) + ". " + this->_leftColumn[i] : "";
+		MyString rightStr = i < rightSize ? MyString(right) + ". " + this->_rightColumn[i] : "";
+		std::cout << std::left << std::setw(20) << leftStr << rightStr << "\n";
 		left++;
 		right++;
 	}
@@ -133,6 +138,7 @@ void MatchingPairsQuestion::writeColumnToBinary(std::ofstream& ofs, const Vector
 }
 
 void MatchingPairsQuestion::writeCorrectAnswersToBinary(std::ofstream& ofs, const Vector<Pair<MyString, MyString>>& answers) const {
+
 	size_t size = answers.size();
 	ofs.write((const char*)&size, sizeof(size));
 
@@ -143,11 +149,15 @@ void MatchingPairsQuestion::writeCorrectAnswersToBinary(std::ofstream& ofs, cons
 }
 
 void MatchingPairsQuestion::readColumnFromBinary(std::ifstream& ifs, Vector<MyString>& column) {
+	column.clear();
+
 	size_t size;
 	ifs.read((char*)&size, sizeof(size));
 
 	for (size_t i = 0; i < size; i++) {
-		column[i].readFromBinaryFile(ifs);
+		MyString str;
+		str.readFromBinaryFile(ifs);
+		column.push_back(str);
 	}
 
 }
@@ -155,6 +165,8 @@ void MatchingPairsQuestion::readColumnFromBinary(std::ifstream& ifs, Vector<MySt
 void MatchingPairsQuestion::readCorrectAnswersFromBinary(std::ifstream& ifs, Vector<Pair<MyString, MyString>>& answers) {
 	size_t size;
 	ifs.read((char*)&size, sizeof(size));
+
+	answers.clear();
 
 	for (size_t i = 0; i < size; i++) {
 		MyString first;

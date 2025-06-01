@@ -25,6 +25,7 @@ private:
 	void copyDynamicMemory(const QuestionsRepository& repo);
 	void freeDynamic();
 	void resize(size_t newCap);
+	void add(const Question* question);
 
 };
 

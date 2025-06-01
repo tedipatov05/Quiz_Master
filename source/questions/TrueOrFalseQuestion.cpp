@@ -11,7 +11,12 @@ void TrueOrFalseQuestion::readFromBinaryFile(std::ifstream& ifs) {
 	this->_correctAnswer.readFromBinaryFile(ifs);
 }
 
+
 void TrueOrFalseQuestion::writeToBinaryFile(std::ofstream& ofs) const {
+
+	QuestionType type = this->type();
+	ofs.write((const char*)&type, sizeof(type));
+
 	ofs.write((const char*)&this->_points, sizeof(this->_points));
 	this->_desription.writeToBinaryFile(ofs);
 	this->_correctAnswer.writeToBinaryFile(ofs);
@@ -19,15 +24,17 @@ void TrueOrFalseQuestion::writeToBinaryFile(std::ofstream& ofs) const {
 void TrueOrFalseQuestion::read() {
 	std::cout << "Enter question description: ";
 	std::cin >> this->_desription;
-	std::cout << std::endl;
 	std::cout << "Enter correct answer (True/False): ";
 	std::cin >> this->_correctAnswer;
-	std::cout << std::endl;
 	std::cout << "Enter points: ";
 	std::cin >> this->_points;
 }
 void TrueOrFalseQuestion::print(std::ostream& os) const {
-	os << this->_desription << std::endl;
+	os << this->_desription << " (" << _points << " points) " << std::endl;
+}
+
+QuestionType TrueOrFalseQuestion::type() const{
+	return QuestionType::TrueOrFalse;
 }
 
 Question* TrueOrFalseQuestion::clone() const{

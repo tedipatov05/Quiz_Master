@@ -13,6 +13,7 @@ public:
 	void print(std::ostream& os) const override;
 	void read() override;
 	Question* clone() const override;
+	QuestionType type() const override;
 	bool isCorrectAnswer(const MyString& userAnswer) const;
 
 private:
