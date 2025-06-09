@@ -14,7 +14,10 @@ public:
 	void read() override;
 	Question* clone() const override;
 	QuestionType type() const override;
-	bool isCorrectAnswer(const MyString& userAnswer) const;
+	//bool isCorrectAnswer(const MyString& userAnswer) const;
+	void printCorrectAnswer(std::ostream& os) const override;
+	int checkAnswer(const MyString& answer) const override;
+	//int start() const override;
 
 private:
 	Vector<MyString> _answers;

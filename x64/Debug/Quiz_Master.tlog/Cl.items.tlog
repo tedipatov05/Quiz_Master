@@ -1,3 +1,9 @@
+D:\ФМИ\Quiz_Master\Quiz_Master\source\Quiz.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Quiz.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\Message.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Message.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\users\Admin.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Admin.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\MultipleChoiceQuestion.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\MultipleChoiceQuestion.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\Report.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Report.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\users\Player.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Player.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\QuestionFactory.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\QuestionFactory.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\QuestionsRepository.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\QuestionsRepository.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\Quiz_Master.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Quiz_Master.obj
@@ -8,3 +14,6 @@ D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\Question.cpp;D:\ФМИ\Quiz_M
 D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\ShortAnswerQuestion.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ShortAnswerQuestion.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\SingleChoiceQuestion.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\SingleChoiceQuestion.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\questions\TrueOrFalseQuestion.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\TrueOrFalseQuestion.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\users\User.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\User.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\users\UserFactory.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserFactory.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\Time.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Time.obj

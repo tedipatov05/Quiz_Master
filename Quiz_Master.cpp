@@ -5,19 +5,23 @@
 #include <iostream>
 #include <sstream>
 
+#include "headers/Quiz.h"
 #include "headers/Time.h"
 #include "headers/helpers/MyString.h"
 #include "headers/helpers/Pair.hpp"
 #include "headers/helpers/Utils.h"
 #include "headers/questions/MatchingPairsQuestions.h"
+#include "headers/questions/MultipleChoiceQuestion.h"
 #include "headers/questions/Question.h"
 #include "headers/questions/ShortAnswerQuestion.h"
 #include "headers/questions/SingleChoiceQuestion.h"
 #include "headers/questions/TrueOrFlaseQuestion.h"
+#include "headers/users/Player.h"
+#include "headers/users/User.h"
 
 int main()
 {
-	
+
 
 	/*MyString left[] = {"A. sinx", "B. ln(1+x)", "C. cosx", "D. tanx"};
 	MyString right[] = { "a. 1+x+x^2/2+x^3/6+...", "b. x−x^3/6+x^5/120+.." };
@@ -50,15 +54,83 @@ int main()
 
 	question2->print(std::cout);*/
 
-	Time time;
+	/*Time time;
 
 	std::cout << time.getTime();
 
-	MyString question("Test split finction");
+	User* user = new Player();*/
 
-	Vector<MyString> splitedWords = split(question, " ");
 
+	//std::ofstream ofs("test.txt");
+	//if (!ofs.is_open()) {
+	//	std::cerr << "Failed to open file\n";
+	//	return 1;
+	//}
+
+
+
+	//const int lineWidth = 200; // Adjust to your preferred width
+	//std::string quizTitle = "Test Quiz - <Number of Questions> Questions";
+	//std::string author = "By Teodor Patov @patlaka";
+
+	//// Center header
+	//ofs << std::setw((lineWidth + quizTitle.length()) / 2) << quizTitle << "\n\n";
+	//ofs << std::setw((lineWidth + author.length()) / 2) << author << "\n\n\n";
+
+	//// Question 1 - True/False
+	//ofs << "1) TrueOrFalseQuestion description\n\n";
+	//ofs << "   True/False\n\n\n";
+
+	//// Question 2 - Single Choice
+	//ofs << "2) SingleChoiceQuestion description\n";
+	//ofs << "   a) Option A\n";
+	//ofs << "   b) Option B\n";
+	//ofs << "   c) Option C\n";
+	//ofs << "   d) Option D\n";
+
+	//ofs.close();
+	//std::cout << "Quiz saved successfully.\n";
+
+	/*int a = 14;
+	MyString str = toString(a);
+	std::cout << str;*/
+
+
+	//std::ofstream ofs("question.dat", std::ios::binary);
+
+	//Question* question1 = new TrueOrFalseQuestion("true of false", 10, "true");
+
+	//question1->writeToBinaryFile(ofs);
+
+
+	//Vector<MyString> answers = Vector<MyString>();
+	//answers.push_back("Answer1");
+	//answers.push_back("Answer2");
+	//answers.push_back("Answer3");
+	//answers.push_back("Answer4");
+	//answers.push_back("Answer5");
+
+
+	//Vector<MyString> correct = Vector<MyString>();
+	//correct.push_back("A");
+	//correct.push_back("B");
+
+	//Question* question2 = new MultipleChoiceQuestion("Question", 20, answers, correct);
+
+	//question2->writeToBinaryFile(ofs);
+
+	//ofs.close();
+
+	User* creator = new Player("Test", "Testov", "testov", "1234", 1);
+
+	Quiz quiz = Quiz(1, 2);
+
+	quiz.readQuiz();
+
+
+	quiz.start("normal", false);
 
 	
-   
+
+
 }

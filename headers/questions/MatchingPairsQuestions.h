@@ -17,13 +17,19 @@ public:
 	void writeToBinaryFile(std::ofstream& ofs) const override;
 	Question* clone() const override;
 	QuestionType type() const override;
+	void printCorrectAnswer(std::ostream& os) const override;
 
-	int countCorrectAnswers(const Vector<Pair<MyString, MyString>>& userAnswer);
+	int countCorrectAnswers(const Vector<Pair<MyString, MyString>>& userAnswer) const;
+	int checkAnswer(const MyString& answer) const override;
 
 private:
 	Vector<Pair<MyString, MyString>> _correctAnswer;
 	Vector<MyString> _leftColumn;
 	Vector<MyString> _rightColumn;
+
+	void splitAnswer(const MyString& input, Vector<Pair<MyString, MyString>>& answer) const;
+	bool isInValidFormat(const MyString& input) const;
+
 
 	void readColumn(char ch, Vector<MyString>& column, const MyString& columnType);
 	void readCorrectAnswers();

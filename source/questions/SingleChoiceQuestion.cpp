@@ -39,7 +39,25 @@ void SingleChoiceQuestion::print(std::ostream& os) const{
 		os << ch << ".  " << this->_answers[i] << std::endl;
 		ch++;
 	}
+
 }
+
+void SingleChoiceQuestion::printCorrectAnswer(std::ostream& os) const{
+	os << "Correct answer:" << this->_correctAnswer << std::endl;
+}
+
+//int SingleChoiceQuestion::start() const{
+//
+//	this->print(std::cout);
+//	std::cout << "Enter your answer here (A,B,C,D): ";
+//
+//	MyString answer;
+//	std::cin >> answer;
+//
+//	return isCorrectAnswer(answer) ? this->_points : 0;
+//}
+
+
 
 void SingleChoiceQuestion::readFromBinaryFile(std::ifstream& ifs){
 	_answers.clear();
@@ -83,8 +101,8 @@ QuestionType SingleChoiceQuestion::type() const{
 	return QuestionType::SingleChoice;
 }
 
-bool SingleChoiceQuestion::isCorrectAnswer(const MyString& userAnswer) const{
-	return this->_correctAnswer.toLower() == userAnswer.toLower();
+int SingleChoiceQuestion::checkAnswer(const MyString& userAnswer) const{
+	return this->_correctAnswer.toLower() == userAnswer.toLower() ? this->_points : 0;
 }
 
 

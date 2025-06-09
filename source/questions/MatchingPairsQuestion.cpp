@@ -30,6 +30,16 @@ void MatchingPairsQuestion::read() {
 
 }
 
+void MatchingPairsQuestion::printCorrectAnswer(std::ostream& os) const {
+	os << "Correct answer: ";
+	for (size_t i = 0; i < _correctAnswer.size() - 1; i++) {
+		os << this->_correctAnswer[i] << ", ";
+	}
+
+	os << this->_correctAnswer[_correctAnswer.size() - 1];
+}
+
+
 void MatchingPairsQuestion::readColumn(char ch, Vector<MyString>& column, const MyString& columnType) {
 	size_t cout;
 	std::cout << "Enter " << columnType << " column values count: ";
@@ -47,12 +57,13 @@ void MatchingPairsQuestion::readColumn(char ch, Vector<MyString>& column, const 
 
 }
 
-void MatchingPairsQuestion::readCorrectAnswers() {
-	char pairs[BUFFER_SIZE];
-	std::cout << "Enter correct answers: ";
-	std::cin.getline(pairs, BUFFER_SIZE);
+void MatchingPairsQuestion::splitAnswer(const MyString& input, Vector<Pair<MyString, MyString>>& answer) const {
 
-	std::stringstream ss(pairs);
+	if (!this->isInValidFormat(input)){
+		throw std::invalid_argument("Invalid format of the input");
+	}
+
+	std::stringstream ss(input.data());
 	char ch;
 	char first, second;
 	while (ss >> ch) {
@@ -61,11 +72,82 @@ void MatchingPairsQuestion::readCorrectAnswers() {
 
 			Pair<MyString, MyString> pair(first, second);
 
-			_correctAnswer.push_back(pair);
+			answer.push_back(pair);
+		}
+	}
+}
+
+bool MatchingPairsQuestion::isInValidFormat(const MyString& input) const {
+	std::stringstream ss(input.data());
+	char ch;
+	char first, second;
+
+	while (ss >> ch) {
+		if (ch != '(') {
+			return false;
+		}
+
+		ss >> first >> ch;
+		if (ch != ',') {
+			return false;
+		}
+
+		ss >> second >> ch;
+		if (ch != ')') {
+			return false;
+		}
+
+		ss >> ch;
+		if (ch != ',' && !ss.eof()) {
+			return false;
 		}
 	}
 
+	return true;
 }
+
+
+
+void MatchingPairsQuestion::readCorrectAnswers() {
+
+	MyString answer;
+
+	while (true){
+		try{
+			std::cout << "Enter correct answers: ";
+			std::cin >> answer;
+
+			splitAnswer(answer, this->_correctAnswer);
+			break;
+		}
+		catch (std::invalid_argument e){
+			std::cout << e.what() << std::endl;
+		}
+	}
+	
+
+}
+
+int MatchingPairsQuestion::checkAnswer(const MyString& input) const {
+
+
+	Vector<Pair<MyString, MyString>> answers;
+
+	splitAnswer(input, answers);
+
+	int res = countCorrectAnswers(answers);
+
+	if (res >= this->_correctAnswer.size() / 2 && res < this->_correctAnswer.size()) {
+		return this->_points / 2;
+	}
+	else if (res == this->_correctAnswer.size()) {
+		return this->_points;
+	}
+	else {
+		return 0;
+	}
+}
+
 
 void MatchingPairsQuestion::readFromBinaryFile(std::ifstream& ifs) {
 	this->_desription.readFromBinaryFile(ifs);
@@ -91,7 +173,7 @@ void MatchingPairsQuestion::writeToBinaryFile(std::ofstream& ofs) const {
 	ofs.write((const char*)&this->_points, sizeof(this->_points));
 }
 
-int MatchingPairsQuestion::countCorrectAnswers(const Vector<Pair<MyString, MyString>>& userAnswer) {
+int MatchingPairsQuestion::countCorrectAnswers(const Vector<Pair<MyString, MyString>>& userAnswer) const {
 	int count = 0;
 	for (size_t i = 0; i < userAnswer.size(); i++) {
 		if (this->_correctAnswer.contains(userAnswer[i])) {
@@ -116,10 +198,12 @@ void MatchingPairsQuestion::print(std::ostream& os) const {
 	for (size_t i = 0; i < count; i++) {
 		MyString leftStr = i < leftSize ? MyString(left) + ". " + this->_leftColumn[i] : "";
 		MyString rightStr = i < rightSize ? MyString(right) + ". " + this->_rightColumn[i] : "";
-		std::cout << std::left << std::setw(20) << leftStr << rightStr << "\n";
+		os << std::left << std::setw(20) << leftStr << rightStr << "\n";
 		left++;
 		right++;
 	}
+
+	std::cout << "Enter your answer here: ";
 
 
 }

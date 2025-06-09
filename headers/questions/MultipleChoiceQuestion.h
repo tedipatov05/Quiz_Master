@@ -14,13 +14,17 @@ public:
 	void read() override;
 	Question* clone() const override;
 	QuestionType type() const override;
-	int isCorrectAnswer(const Vector<MyString>& userAnswer) const;
+	int checkAnswer(const MyString& answer) const;
 
 	void readCollection(std::ifstream& ifs, Vector<MyString>& collection);
 	void writeCollection(std::ofstream& ofs, const Vector<MyString>& collection) const;
+	void printCorrectAnswer(std::ostream& os) const override;
 
 private:
 	Vector<MyString> _answers;
 	Vector<MyString> _correctAnswer;
+
+	void splitAnswers(const MyString& input, Vector<MyString>& answers) const;
+	bool isInValidFormat(const MyString& input) const;
 };
 

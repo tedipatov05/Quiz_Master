@@ -1,6 +1,6 @@
 #include "../../headers/helpers/MyString.h"
 #include "../../headers/helpers/Utils.h"
-#include "../../headers/helpers/MyString.h"
+#include "../../headers/helpers/Constants.h"
 #include <istream>
 #pragma warning(disable : 4996) // Disable deprecation warning for strcpy
 
@@ -372,8 +372,11 @@ void MyString::copyDynamic(const MyString& other) {
 }
 
 void MyString::freeDynamic() {
-	delete[] _data;
-	_data = nullptr;
+	if (_data){
+		delete[] _data;
+		_data = nullptr;
+	}
+	
 }
 
 bool operator==(const MyString& lhs, const MyString& rhs) {
@@ -425,7 +428,7 @@ std::istream& operator>>(std::istream& is, MyString& str) {
 	size_t bufferStringSize = std::strlen(buffer);
 
 	if (bufferStringSize > str.capacity()) {
-		str.reserve(roundToPowerOfTwo(bufferStringSize));
+		str.reserve(roundToPowerOfTwo(bufferStringSize + 1));
 	}
 
 	std::strcpy(str._data, buffer);

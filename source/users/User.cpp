@@ -1,7 +1,7 @@
 #include "../../headers/users/User.h"
 
 User::User(const MyString& first_name, const MyString& last_name, const MyString& username, const MyString& password, int id)
-	: first_name(first_name), last_name(last_name), username(username), password(password), id(id) {
+	: first_name(first_name), last_name(last_name), username(username), password(password), id(id), level(0), points(0) {
 	
 }
 
@@ -21,6 +21,36 @@ void User::writeToBinaryFile(std::ofstream& ofs) const{
 	this->username.writeToBinaryFile(ofs);
 	this->password.writeToBinaryFile(ofs);
 }
+
+MyString User::getFirstName() const{
+	return this->first_name;
+}
+
+MyString User::getLastName() const{
+	return this->last_name;
+}
+
+MyString User::getUsername() const{
+	return this->username;
+}
+
+int User::getLevel() const{
+	return this->level;
+}
+
+int User::getPoints() const{
+	return this->points;
+}
+
+void User::increasePoints(int points){
+	this->points += points;
+}
+
+
+
+
+
+
 
 
 

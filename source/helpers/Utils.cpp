@@ -5,21 +5,22 @@
 
 
 void setString(char*& dest, const char* src) {
-    size_t len = strlen(src);
-    dest = new char[len + 1];
-    strcpy(dest, src);
+	size_t len = strlen(src);
+	dest = new char[len + 1];
+	strcpy(dest, src);
 }
 
 size_t roundToPowerOfTwo(size_t v)
 {
-    v--;
-    v |= v >> 1;
-    v |= v >> 2;
-    v |= v >> 4;
-    v |= v >> 8;
-    v |= v >> 16;
-    v++;
-    return v;
+	v--;
+	v |= v >> 1;
+	v |= v >> 2;
+	v |= v >> 4;
+	v |= v >> 8;
+	v |= v >> 16;
+	v |= v >> 32;
+	v++;
+	return v;
 }
 
 
@@ -37,20 +38,7 @@ bool stringCmp(const char* str1, const char* str2, size_t size) {
 	return true;
 }
 
-//Vector<MyString> split(const MyString& str, const MyString& delimiter) {
-//	Vector<MyString> result;
-//	size_t start = 0;
-//	size_t end = str.find(delimiter.data(), start);
-//
-//	while (end != std::string::npos) {
-//		result.push_back(str.substr(start, end - start));
-//		start = end + delimiter.size();
-//		end = str.find(delimiter.data(), start);
-//	}
-//
-//	result.push_back(str.substr(start, end));
-//	return result;
-//}
+
 
 int toInt(const MyString& str) {
 	int result = 0;
@@ -81,6 +69,65 @@ double toDouble(const MyString& str) {
 	}
 
 	return result;
+}
+
+
+
+
+
+QuestionType fromStringToQuestionType(const MyString& type) {
+	if (type.toLower() == "t/f") {
+		return QuestionType::TrueOrFalse;
+	}
+	else if (type.toLower() == "sc") {
+		return QuestionType::SingleChoice;
+	}
+	else if (type.toLower() == "mc") {
+		return QuestionType::MultipleChoice;
+	}
+	else if (type.toLower() == "sha") {
+		return QuestionType::ShortAnswer;
+	}
+	else if (type.toLower() == "mp") {
+		return QuestionType::MatchingPairs;
+	}
+	else {
+		return QuestionType::Unknown;
+	}
+
+
+}
+
+MyString toString(int number) {
+	if (number == 0) {
+		return MyString("0");
+	}
+
+	bool isNegative = number < 0;
+	if (isNegative) {
+		number = -number;
+	}
+
+	char buffer[12];
+	int index = 0;
+
+	while (number > 0) {
+		buffer[index++] = (number % 10) + '0';
+		number /= 10;
+	}
+
+	if (isNegative) {
+		buffer[index++] = '-';
+	}
+
+	buffer[index] = '\0';
+
+
+	for (int i = 0; i < index / 2; ++i) {
+		std::swap(buffer[i], buffer[index - i - 1]);
+	}
+
+	return MyString(buffer);
 }
 
 

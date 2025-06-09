@@ -30,13 +30,30 @@ Question* ShortAnswerQuestion::clone() const {
 	return new ShortAnswerQuestion(*this);
 }
 
+void ShortAnswerQuestion::printCorrectAnswer(std::ostream& os) const{
+	os << "Correct answer: " << this->_correctAnswer << std::endl;
+}
+//
+//int ShortAnswerQuestion::start() const{
+//
+//	this->print(std::cout);
+//	MyString answer;
+//	std::cin >> answer;
+//
+//	return isCorrectAnswer(answer) ? this->_points : 0;
+//}
+//
+
+
 void ShortAnswerQuestion::print(std::ostream& os) const {
 	int words = _correctAnswer.countCharacter(' ') + 1;
 	os << this->_desription << " (" << words << " words) " << "(" << _points << " points)" << std::endl;
+	os << "Enter your answer here : ";
 }
 
-bool ShortAnswerQuestion::isCorrectAnswer(const MyString& userAnswer) const {
-	return this->_correctAnswer.toLower() == userAnswer.toLower();
+int ShortAnswerQuestion::checkAnswer(const MyString& userAnswer) const {
+
+	return this->_correctAnswer.toLower() == userAnswer.toLower() ? this->_points : 0;
 }
 
 
@@ -49,8 +66,6 @@ void ShortAnswerQuestion::read() {
 
 	std::cout << "Enter points: ";
 	std::cin >> this->_points;
-
-
 }
 
 

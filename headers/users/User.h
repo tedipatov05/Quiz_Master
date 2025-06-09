@@ -10,6 +10,13 @@ public:
 
 
 	// TODO: Add getters if needed
+	MyString getFirstName() const;
+	MyString getLastName() const;
+	MyString getUsername() const;
+	int getLevel() const;
+	int getPoints() const;
+
+	void increasePoints(int points);
 
 
 	virtual UserType role() const = 0;
@@ -25,5 +32,7 @@ protected:
 	MyString last_name;
 	MyString username;
 	MyString password;
+	int level;
+	int points;
 };
 

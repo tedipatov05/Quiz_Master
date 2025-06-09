@@ -12,6 +12,8 @@ public:
 	void readFromBinaryFile(std::ifstream& ifs);
 	void writeToBinaryFile(std::ofstream& ofs) const;
 
+
+	void addQuestion(const Question* question);
 	const Question& operator[](size_t index) const;
 
 	size_t size() const;

@@ -1,0 +1,159 @@
+#include "../headers/Quiz.h"
+
+#include <iomanip>
+
+#include "../headers/helpers/Utils.h"
+#include <iostream>
+
+Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true) {
+
+}
+
+void Quiz::readQuiz() {
+	std::cout << "Enter quiz title: ";
+	std::cin >> this->quizName;
+	std::cout << "Enter number of questions: ";
+	size_t questionsCount = 0;
+	std::cin >> questionsCount;
+	std::cin.ignore();
+
+	for (size_t i = 0; i < questionsCount; i++) {
+		MyString type;
+		std::cout << "Enter question " << i + 1 << "type (T/F, SC, MC, ShA, MP): ";
+		std::cin >> type;
+
+		Question* question = QuestionFactory::createQuestion(fromStringToQuestionType(type));
+		question->read();
+		std::cin.ignore();
+
+		this->maxPoints += question->getPoints();
+
+		this->_questionsRepo.addQuestion(question);
+		std::cout << "\n";
+
+	}
+
+
+	std::cout << "Quiz '" << quizName << "' with ID " << quizId << "sent for admin approval!" << std::endl;
+
+}
+
+void Quiz::approveQuiz() {
+	this->isApproved = true;
+}
+
+
+void Quiz::saveInTextFile(std::ofstream& ofs, const User* creator) const {
+
+	MyString quizTitle = this->quizName;
+	quizTitle += " - ";
+	quizTitle += toString(_questionsRepo.size());
+	quizTitle += " Questions";
+
+	MyString author = "By " + creator->getFirstName() + " " + creator->getLastName() + " @" + creator->getUsername();
+
+
+	writeCenteredRow(ofs, quizTitle);
+	writeCenteredRow(ofs, author);
+	std::cout << std::endl;
+
+	for (size_t i = 0; i < _questionsRepo.size(); i++) {
+		ofs << (i + 1) << ") ";
+		_questionsRepo[i].print(ofs);
+
+		ofs << std::endl;
+	}
+
+
+
+}
+
+void Quiz::saveInBinaryFile(std::ofstream& ofs) const {
+
+	ofs.write((const char*)&this->quizId, sizeof(this->quizId));
+	ofs.write((const char*)&this->creatorId, sizeof(this->creatorId));
+	ofs.write((const char*)&this->maxPoints, sizeof(this->maxPoints));
+	this->quizName.writeToBinaryFile(ofs);
+
+	this->_questionsRepo.writeToBinaryFile(ofs);
+
+	ofs.write((const char*)&this->isApproved, sizeof(this->isApproved));
+}
+
+void Quiz::print(std::ostream& os) const {
+
+	for (size_t i = 0; i < _questionsRepo.size(); i++) {
+		os << (i + 1) << ") ";
+		_questionsRepo[i].print(os);
+
+		os << std::endl;
+	}
+
+}
+
+void Quiz::readFromBinaryFile(std::ifstream& ifs) {
+
+	ifs.read((char*)&this->quizId, sizeof(this->quizId));
+	ifs.read((char*)&this->creatorId, sizeof(this->creatorId));
+	ifs.read((char*)&this->maxPoints, sizeof(this->maxPoints));
+	this->quizName.readFromBinaryFile(ifs);
+
+	this->_questionsRepo.readFromBinaryFile(ifs);
+
+	ifs.read((char*)&this->isApproved, sizeof(this->isApproved));
+
+}
+
+int Quiz::start(MyString mode, bool isShuffle) {
+
+	int result = 0;
+	Vector<int> nums = Vector<int>();
+	for (size_t i = 0; i < this->_questionsRepo.size(); i++) {
+		nums.push_back(i);
+	}
+
+
+	if (isShuffle) {
+		shuffle(nums);
+	}
+
+
+	for (size_t i = 0; i < this->_questionsRepo.size(); i++) {
+		result += this->_questionsRepo[nums[i]].start();
+
+		if (mode.toLower() == "test") {
+			this->_questionsRepo[nums[i]].printCorrectAnswer(std::cout);
+		}
+	}
+
+	std::cout << "Your quiz score is " << result << "/" << this->maxPoints;
+
+
+	return mode.toLower() == "test" ? 0 : result;
+
+}
+
+void Quiz::writeCenteredRow(std::ostream& ofs, const MyString& line) const {
+
+	ofs << std::setw((LINE_SIZE + line.size()) / 2) << line << "\n";
+
+
+}
+
+void Quiz::shuffle(Vector<int>& numbers)
+{
+	int n = numbers.size();
+	for (int i = n - 1; i > 0; --i) {
+		int j = rand() % (i + 1);  // random index from 0 to i
+		std::swap(numbers[i], numbers[j]);
+	}
+}
+
+
+
+
+
+
+
+
+

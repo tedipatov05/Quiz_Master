@@ -1,3 +1,4 @@
+#include <iomanip>
 #include <iostream>
 
 #include "../../headers/questions/TrueOrFlaseQuestion.h"
@@ -31,6 +32,7 @@ void TrueOrFalseQuestion::read() {
 }
 void TrueOrFalseQuestion::print(std::ostream& os) const {
 	os << this->_desription << " (" << _points << " points) " << std::endl;
+	os << "Enter your answer (True/False): ";
 }
 
 QuestionType TrueOrFalseQuestion::type() const{
@@ -41,8 +43,21 @@ Question* TrueOrFalseQuestion::clone() const{
 	return new TrueOrFalseQuestion(*this);
 }
 
-bool TrueOrFalseQuestion::isCorrectAnswer(const MyString& userAnswer) const{
-	return this->_correctAnswer.toLower() == userAnswer.toLower();
+void TrueOrFalseQuestion::printCorrectAnswer(std::ostream& os) const{
+	os << "Correct answer: " << this->_correctAnswer << std::endl;
+}
+
+
+//int TrueOrFalseQuestion::start() const{
+//	this->print(std::cout);
+//
+//	MyString answer = 
+//
+//}
+
+
+int TrueOrFalseQuestion::checkAnswer(const MyString& userAnswer) const{
+	return this->_correctAnswer.toLower() == userAnswer.toLower() ? this->_points : 0;
 }
 
 

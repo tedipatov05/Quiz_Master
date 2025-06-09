@@ -14,7 +14,10 @@ public:
 	void print(std::ostream& os) const override;
 	Question* clone() const override;
 	QuestionType type() const;
-	bool isCorrectAnswer(const MyString& userAnswer) const;
+	int checkAnswer(const MyString& userAnswer) const;
+	void printCorrectAnswer(std::ostream& os) const override;
+
+	//int start() const override;
 
 private:
 	MyString _correctAnswer;

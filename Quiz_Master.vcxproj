@@ -127,6 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Quiz.cpp" />
+    <ClCompile Include="source\Message.cpp" />
+    <ClCompile Include="source\users\Admin.cpp" />
     <ClCompile Include="source\questions\MultipleChoiceQuestion.cpp" />
     <ClCompile Include="source\Report.cpp" />
     <ClCompile Include="source\users\Player.cpp" />
@@ -145,6 +148,7 @@
     <ClCompile Include="source\Time.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\users\Admin.h" />
     <ClInclude Include="headers\helpers\Constants.h" />
     <ClInclude Include="headers\helpers\MyString.h" />
     <ClInclude Include="headers\helpers\Pair.hpp" />
@@ -163,6 +167,8 @@
     <ClInclude Include="headers\Report.h" />
     <ClInclude Include="headers\Time.h" />
     <ClInclude Include="headers\questions\MultipleChoiceQuestion.h" />
+    <ClInclude Include="headers\Message.h" />
+    <ClInclude Include="headers\Quiz.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

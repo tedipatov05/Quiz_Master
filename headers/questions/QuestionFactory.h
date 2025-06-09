@@ -7,7 +7,8 @@ enum class QuestionType {
 	ShortAnswer,
 	SingleChoice,
 	MatchingPairs,
-	MultipleChoice
+	MultipleChoice,
+	Unknown
 };
 
 class QuestionFactory{
