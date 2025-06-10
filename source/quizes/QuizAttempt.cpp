@@ -1,4 +1,4 @@
-#include "../headers/QuizAttempt.h"
+#include "../../headers/quizes/QuizAttempt.h"
 
 QuizAttempt::QuizAttempt(QuizMode mode, int userId, int quizId, int points) : mode(mode), _userId(userId), _quizId(quizId), points(points){
 	

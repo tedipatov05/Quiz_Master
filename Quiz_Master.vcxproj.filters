@@ -75,7 +75,7 @@
     <ClCompile Include="source\Message.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Quiz.cpp">
+    <ClCompile Include="source\quizes\Quiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\challenges\Challenge.cpp">
@@ -84,7 +84,16 @@
     <ClCompile Include="source\challenges\UserChallenge.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\QuizAttempt.cpp">
+    <ClCompile Include="source\quizes\QuizAttempt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\quizes\UserQuiz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Context.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\users\UserRepository.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -149,7 +158,7 @@
     <ClInclude Include="headers\Message.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\Quiz.h">
+    <ClInclude Include="headers\quizes\Quiz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\challenges\Challenge.h">
@@ -158,7 +167,16 @@
     <ClInclude Include="headers\challenges\UserChallenge.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\QuizAttempt.h">
+    <ClInclude Include="headers\quizes\QuizAttempt.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\quizes\UserQuiz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\Context.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\users\UserRepository.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

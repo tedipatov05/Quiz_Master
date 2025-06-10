@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\QuizAttempt.cpp" />
+    <ClCompile Include="source\Context.cpp" />
+    <ClCompile Include="source\quizes\UserQuiz.cpp" />
+    <ClCompile Include="source\quizes\QuizAttempt.cpp" />
     <ClCompile Include="source\challenges\Challenge.cpp" />
-    <ClCompile Include="source\Quiz.cpp" />
+    <ClCompile Include="source\quizes\Quiz.cpp" />
     <ClCompile Include="source\Message.cpp" />
     <ClCompile Include="source\users\Admin.cpp" />
     <ClCompile Include="source\questions\MultipleChoiceQuestion.cpp" />
@@ -149,8 +151,10 @@
     <ClCompile Include="source\users\UserFactory.cpp" />
     <ClCompile Include="source\Time.cpp" />
     <ClCompile Include="source\challenges\UserChallenge.cpp" />
+    <ClCompile Include="source\users\UserRepository.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\Context.h" />
     <ClInclude Include="headers\challenges\Challenge.h" />
     <ClInclude Include="headers\users\Admin.h" />
     <ClInclude Include="headers\helpers\Constants.h" />
@@ -172,9 +176,11 @@
     <ClInclude Include="headers\Time.h" />
     <ClInclude Include="headers\questions\MultipleChoiceQuestion.h" />
     <ClInclude Include="headers\Message.h" />
-    <ClInclude Include="headers\Quiz.h" />
+    <ClInclude Include="headers\quizes\Quiz.h" />
     <ClInclude Include="headers\challenges\UserChallenge.h" />
-    <ClInclude Include="headers\QuizAttempt.h" />
+    <ClInclude Include="headers\quizes\QuizAttempt.h" />
+    <ClInclude Include="headers\quizes\UserQuiz.h" />
+    <ClInclude Include="headers\users\UserRepository.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

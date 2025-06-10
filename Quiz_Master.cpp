@@ -5,8 +5,8 @@
 #include <iostream>
 #include <sstream>
 
-#include "headers/Quiz.h"
-#include "headers/QuizAttempt.h"
+#include "headers/quizes/Quiz.h"
+#include "headers/quizes/QuizAttempt.h"
 #include "headers/Time.h"
 #include "headers/helpers/MyString.h"
 #include "headers/helpers/Pair.hpp"

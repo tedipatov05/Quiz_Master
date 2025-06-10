@@ -1,14 +1,15 @@
 #pragma once
-#include "helpers/Vector.hpp"
-#include "questions/QuestionsRepository.h"
-#include "users/User.h"
+#include "../helpers/Vector.hpp"
+#include "../questions/QuestionsRepository.h"
+#include "../users/User.h"
 
 
 class QuizAttempt;
 
 enum class QuizMode{
 	Test,
-	Normal
+	Normal,
+	Unknown
 };
 
 class Quiz{

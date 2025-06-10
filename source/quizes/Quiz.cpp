@@ -1,11 +1,8 @@
-#include "../headers/Quiz.h"
-
+#include "../../headers/quizes/Quiz.h"
 #include <iomanip>
-
-#include "../headers/helpers/Utils.h"
+#include "../../headers/helpers/Utils.h"
 #include <iostream>
-
-#include "../headers/QuizAttempt.h"
+#include "../../headers/quizes/QuizAttempt.h"
 
 Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true) {
 
@@ -21,7 +18,7 @@ void Quiz::readQuiz() {
 
 	for (size_t i = 0; i < questionsCount; i++) {
 		MyString type;
-		std::cout << "Enter question " << i + 1 << "type (T/F, SC, MC, ShA, MP): ";
+		std::cout << "Enter question " << i + 1 << " type (T/F, SC, MC, ShA, MP): ";
 		std::cin >> type;
 
 		Question* question = QuestionFactory::createQuestion(fromStringToQuestionType(type));
@@ -36,7 +33,7 @@ void Quiz::readQuiz() {
 	}
 
 
-	std::cout << "Quiz '" << quizName << "' with ID " << quizId << "sent for admin approval!" << std::endl;
+	std::cout << "Quiz '" << quizName << "' with ID " << quizId << " sent for admin approval!" << std::endl;
 
 }
 
@@ -80,6 +77,7 @@ void Quiz::saveInBinaryFile(std::ofstream& ofs) const {
 	this->_questionsRepo.writeToBinaryFile(ofs);
 
 	ofs.write((const char*)&this->isApproved, sizeof(this->isApproved));
+	ofs.write((const char*)&this->isActive, sizeof(this->isActive));
 }
 
 void Quiz::print(std::ostream& os) const {
@@ -103,10 +101,15 @@ void Quiz::readFromBinaryFile(std::ifstream& ifs) {
 	this->_questionsRepo.readFromBinaryFile(ifs);
 
 	ifs.read((char*)&this->isApproved, sizeof(this->isApproved));
+	ifs.read((char*)&this->isActive, sizeof(this->isActive));
 
 }
 
 QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
+
+	if (!this->isActive || !this->isApproved){
+		throw std::invalid_argument("This course is unavailable at the moment.");
+	}
 
 	int result = 0;
 	Vector<int> nums = Vector<int>();
