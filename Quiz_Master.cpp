@@ -6,6 +6,7 @@
 #include <sstream>
 
 #include "headers/Quiz.h"
+#include "headers/QuizAttempt.h"
 #include "headers/Time.h"
 #include "headers/helpers/MyString.h"
 #include "headers/helpers/Pair.hpp"
@@ -128,7 +129,9 @@ int main()
 	quiz.readQuiz();
 
 
-	quiz.start("normal", false);
+	QuizAttempt attempt = quiz.start(QuizMode::Normal, false, creator->getUserId());
+
+	std::cout << "Ready";
 
 	
 

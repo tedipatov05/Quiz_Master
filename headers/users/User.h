@@ -15,9 +15,9 @@ public:
 	MyString getUsername() const;
 	int getLevel() const;
 	int getPoints() const;
+	int getUserId() const;
 
 	void increasePoints(int points);
-
 
 	virtual UserType role() const = 0;
 	virtual User* clone() const = 0;

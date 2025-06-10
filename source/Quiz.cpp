@@ -5,6 +5,8 @@
 #include "../headers/helpers/Utils.h"
 #include <iostream>
 
+#include "../headers/QuizAttempt.h"
+
 Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true) {
 
 }
@@ -104,7 +106,7 @@ void Quiz::readFromBinaryFile(std::ifstream& ifs) {
 
 }
 
-int Quiz::start(MyString mode, bool isShuffle) {
+QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 
 	int result = 0;
 	Vector<int> nums = Vector<int>();
@@ -121,15 +123,19 @@ int Quiz::start(MyString mode, bool isShuffle) {
 	for (size_t i = 0; i < this->_questionsRepo.size(); i++) {
 		result += this->_questionsRepo[nums[i]].start();
 
-		if (mode.toLower() == "test") {
+		if (mode == QuizMode::Test) {
 			this->_questionsRepo[nums[i]].printCorrectAnswer(std::cout);
 		}
 	}
 
-	std::cout << "Your quiz score is " << result << "/" << this->maxPoints;
+	std::cout << "Your quiz score is " << result << "/" << this->maxPoints << std::endl;
 
+	if (mode == QuizMode::Test){
+		std::cout << "This quiz in test mode. This points will not be added to your score!" << std::endl;
+	}
 
-	return mode.toLower() == "test" ? 0 : result;
+	result = mode == QuizMode::Test ? 0 : result;
+	return QuizAttempt(mode, userId, this->quizId, result);
 
 }
 

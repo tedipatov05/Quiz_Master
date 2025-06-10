@@ -78,6 +78,15 @@
     <ClCompile Include="source\Quiz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\challenges\Challenge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\challenges\UserChallenge.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\QuizAttempt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -141,6 +150,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\Quiz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\challenges\Challenge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\challenges\UserChallenge.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\QuizAttempt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

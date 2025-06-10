@@ -4,6 +4,12 @@
 #include "users/User.h"
 
 
+class QuizAttempt;
+
+enum class QuizMode{
+	Test,
+	Normal
+};
 
 class Quiz{
 public:
@@ -11,7 +17,7 @@ public:
 	Quiz(int creatorId, int quizId);
 
 	void saveInTextFile(std::ofstream& ofs, const User* creator) const;
-	int start(MyString mode1, bool isShuffle);
+	QuizAttempt start(QuizMode mode, bool isShuffle, int userId);
 	void print(std::ostream& ofs) const;
 	void saveInBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs);
