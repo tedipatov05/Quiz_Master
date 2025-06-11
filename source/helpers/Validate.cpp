@@ -1,0 +1,48 @@
+#include "../../headers/helpers/Validate.h"
+
+void Validate::removeUnnecessarySpaces(MyString& input){
+	const char* raw = input.data();  
+	size_t len = input.size();      
+
+	MyString result;
+	bool inSpace = true;
+
+	for (size_t i = 0; i < len; i++) {
+		char c = raw[i];
+
+		if (c == ' ') {
+			if (!inSpace) {
+				result += ' ';
+				inSpace = true;
+			}
+		}
+		else {
+			result += c;
+			inSpace = false;
+		}
+	}
+
+	
+	if (!result.isEmpty() && result[result.size() - 1] == ' ')
+		result.pop_back();
+
+	input = result;
+}
+
+void Validate::areEqual(const MyString& str1, const MyString& str2, const MyString& errorMessage){
+	if (str1 != str2){
+		throw std::invalid_argument(errorMessage.data());
+	}
+}
+
+void Validate::isUserAlreadyExists(const MyString& username, const Context& ctx){
+	User* user = ctx.users.findByUsername(username);
+
+	if (user != nullptr){
+		throw std::invalid_argument(AlreadyExists.data());
+	}
+	
+}
+
+
+

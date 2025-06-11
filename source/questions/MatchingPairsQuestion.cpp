@@ -3,8 +3,10 @@
 #include "../../headers/questions/MatchingPairsQuestions.h"
 #include <sstream>
 
+#include "../../headers/helpers/SystemMessages.h"
+
 MatchingPairsQuestion::MatchingPairsQuestion(const MyString& description, int points, const Vector<MyString>& leftColumn, const Vector<MyString>& rightColumn,
-	const Vector<Pair<MyString, MyString>>& correctAnswer) : Question(description, points) {
+                                             const Vector<Pair<MyString, MyString>>& correctAnswer) : Question(description, points) {
 
 	this->_leftColumn = leftColumn;
 	this->_rightColumn = rightColumn;
@@ -17,21 +19,21 @@ QuestionType MatchingPairsQuestion::type() const {
 }
 
 void MatchingPairsQuestion::read() {
-	std::cout << "Enter description: ";
+	std::cout << EnterDescription;
 	std::cin >> this->_desription;
 
 	this->readColumn('A', _leftColumn, "left column");
 	this->readColumn('a', _rightColumn, "right column");
 	this->readCorrectAnswers();
 
-	std::cout << "Enter points: ";
+	std::cout << EnterPoints;
 	std::cin >> this->_points;
 	std::cout << std::endl;
 
 }
 
 void MatchingPairsQuestion::printCorrectAnswer(std::ostream& os) const {
-	os << "Correct answer: ";
+	os << InputCorrectAnswer;
 	for (size_t i = 0; i < _correctAnswer.size() - 1; i++) {
 		os << this->_correctAnswer[i] << ", ";
 	}
@@ -60,7 +62,7 @@ void MatchingPairsQuestion::readColumn(char ch, Vector<MyString>& column, const 
 void MatchingPairsQuestion::splitAnswer(const MyString& input, Vector<Pair<MyString, MyString>>& answer) const {
 
 	if (!this->isInValidFormat(input)){
-		throw std::invalid_argument("Invalid format of the input");
+		throw std::invalid_argument(InvalidFormat.data());
 	}
 
 	std::stringstream ss(input.data());

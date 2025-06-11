@@ -67,7 +67,7 @@ MyString& MyString::operator+=(const MyString& str) {
 	}
 
 	if (this->size() + str.size() + 1 > this->capacity()) {
-		this->reserve(this->capacity()*2);
+		this->reserve(dataToAllocByStringLen(str.capacity() + this->capacity()));
 	}
 
 	std::strncat(this->_data, str.data(), str.size());
@@ -148,7 +148,7 @@ void MyString::push_back(char ch) {
 
 void MyString::pop_back() {
 	if (!this->isEmpty()) {
-		this->_data[this->size()] = '\0';
+		this->_data[this->size()-1] = '\0';
 		this->_size--;
 	}
 }

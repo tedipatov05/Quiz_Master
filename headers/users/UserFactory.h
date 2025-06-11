@@ -4,7 +4,8 @@ class User;
 
 enum class UserType{
 	Admin,
-	Player
+	Player,
+	None
 };
 
 class UserFactory{

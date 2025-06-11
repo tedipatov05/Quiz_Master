@@ -19,6 +19,8 @@
 #include "headers/questions/TrueOrFlaseQuestion.h"
 #include "headers/users/Player.h"
 #include "headers/users/User.h"
+#include "headers/Context.h"
+#include "headers/helpers/Validate.h"
 
 int main()
 {
@@ -122,18 +124,29 @@ int main()
 
 	//ofs.close();
 
-	User* creator = new Player("Test", "Testov", "testov", "1234", 1);
+	//User* creator = new Player("Test", "Testov", "testov", "1234", 1);
 
-	Quiz quiz = Quiz(1, 2);
+	//Quiz quiz = Quiz(1, 2);
 
-	quiz.readQuiz();
+	//quiz.readQuiz();
+
+	//std::ofstream ofs("quiz.dat", std::ios::binary);
+
+	//quiz.saveInBinaryFile(ofs);
+
+	//ofs.close();
+	//
+	//Vector<Quiz> quizzes;
+
+	//readFromBinaryFile("quiz.dat", quizzes);
+
+	//std::cout << quizzes.size();
 
 
-	QuizAttempt attempt = quiz.start(QuizMode::Normal, false, creator->getUserId());
-
-	std::cout << "Ready";
+	MyString str = "             Patlaka     Patov               ";
+	Validate::removeUnnecessarySpaces(str);
+	MyString res("Patlaka Patov");
+	std::cout << std::boolalpha << (str == res);
 
 	
-
-
 }

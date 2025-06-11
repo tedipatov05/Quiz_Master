@@ -2,6 +2,8 @@
 
 #include "../../headers/questions/ShortAnswerQuestion.h"
 
+#include "../../headers/helpers/SystemMessages.h"
+
 ShortAnswerQuestion::ShortAnswerQuestion(const MyString& description, int points, const MyString& answer)
 	: Question(description, points), _correctAnswer(answer) {
 
@@ -31,7 +33,7 @@ Question* ShortAnswerQuestion::clone() const {
 }
 
 void ShortAnswerQuestion::printCorrectAnswer(std::ostream& os) const{
-	os << "Correct answer: " << this->_correctAnswer << std::endl;
+	os << InputCorrectAnswer << this->_correctAnswer << std::endl;
 }
 //
 //int ShortAnswerQuestion::start() const{
@@ -58,13 +60,13 @@ int ShortAnswerQuestion::checkAnswer(const MyString& userAnswer) const {
 
 
 void ShortAnswerQuestion::read() {
-	std::cout << "Enter description: ";
+	std::cout << EnterDescription;
 	std::cin >> this->_desription;
 
-	std::cout << "Enter correct answer: ";
+	std::cout << ShACorrectAnswer;
 	std::cin >> this->_correctAnswer;
 
-	std::cout << "Enter points: ";
+	std::cout << EnterPoints;
 	std::cin >> this->_points;
 }
 

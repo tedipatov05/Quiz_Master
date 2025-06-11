@@ -1,6 +1,7 @@
 #include <iomanip>
 #include <iostream>
 
+#include "../../headers/helpers/SystemMessages.h"
 #include "../../headers/questions/TrueOrFlaseQuestion.h"
 
 TrueOrFalseQuestion::TrueOrFalseQuestion(const MyString& description, int points, const MyString& correctAnswer)
@@ -23,16 +24,16 @@ void TrueOrFalseQuestion::writeToBinaryFile(std::ofstream& ofs) const {
 	this->_correctAnswer.writeToBinaryFile(ofs);
 }
 void TrueOrFalseQuestion::read() {
-	std::cout << "Enter question description: ";
+	std::cout << EnterDescription;
 	std::cin >> this->_desription;
-	std::cout << "Enter correct answer (True/False): ";
+	std::cout << TrueOrFalseCorrectAnswer;
 	std::cin >> this->_correctAnswer;
-	std::cout << "Enter points: ";
+	std::cout << EnterPoints;
 	std::cin >> this->_points;
 }
 void TrueOrFalseQuestion::print(std::ostream& os) const {
 	os << this->_desription << " (" << _points << " points) " << std::endl;
-	os << "Enter your answer (True/False): ";
+	os << TrueOrFalseUserAnswer;
 }
 
 QuestionType TrueOrFalseQuestion::type() const{
@@ -44,7 +45,7 @@ Question* TrueOrFalseQuestion::clone() const{
 }
 
 void TrueOrFalseQuestion::printCorrectAnswer(std::ostream& os) const{
-	os << "Correct answer: " << this->_correctAnswer << std::endl;
+	os << InputCorrectAnswer << this->_correctAnswer << std::endl;
 }
 
 

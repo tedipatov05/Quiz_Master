@@ -5,6 +5,7 @@
 class Report{
 
 public:
+	Report() = default;
 	Report(const MyString& reporter, const MyString& quizCreator, int quizId, const MyString& reason);
 
 	void print(std::ostream& os) const;

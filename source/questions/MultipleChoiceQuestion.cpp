@@ -3,6 +3,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "../../headers/helpers/SystemMessages.h"
+
 MultipleChoiceQuestion::MultipleChoiceQuestion(const MyString& description, int points, const Vector<MyString>& answers, const Vector<MyString>& correctAnswers)
 	: Question(description, points), _answers(answers), _correctAnswer(correctAnswers) {
 
@@ -12,11 +14,11 @@ void MultipleChoiceQuestion::read() {
 	_answers.clear();
 	_correctAnswer.clear();
 
-	std::cout << "Enter description: ";
+	std::cout << EnterDescription;
 	std::cin >> this->_desription;
 
 	size_t answersCount = 0;
-	std::cout << "Enter possible answers count: ";
+	std::cout << MultipleChoicePossibleAnswers;
 	std::cin >> answersCount;
 	std::cin.ignore();
 
@@ -33,7 +35,7 @@ void MultipleChoiceQuestion::read() {
 	MyString input;
 
 	while (true) {
-		std::cout << "Enter correct answers (comma-separated): ";
+		std::cout << MultipleChoiceCorrectAnswers;
 		std::cin >> input;
 
 		try {
@@ -45,7 +47,7 @@ void MultipleChoiceQuestion::read() {
 		}
 	}
 
-	std::cout << "Enter points: ";
+	std::cout << EnterPoints;
 	std::cin >> this->_points;
 
 }
@@ -55,7 +57,7 @@ void MultipleChoiceQuestion::splitAnswers(const MyString& input, Vector<MyString
 	int end = input.find(", ");
 
 	if (!isInValidFormat(input)) {
-		throw std::invalid_argument("Invalid format");
+		throw std::invalid_argument(InvalidFormat.data());
 	}
 
 	while (end != -1) {
@@ -137,7 +139,7 @@ void MultipleChoiceQuestion::readFromBinaryFile(std::ifstream& ifs) {
 
 
 void MultipleChoiceQuestion::printCorrectAnswer(std::ostream& os) const {
-	os << "Correct answer: ";
+	os << InputCorrectAnswer;
 	for (size_t i = 0; i < _correctAnswer.size() - 1; i++) {
 		os << _correctAnswer[i] << ", ";
 	}

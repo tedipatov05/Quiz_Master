@@ -2,6 +2,8 @@
 #include <iomanip>
 #include "../../headers/helpers/Utils.h"
 #include <iostream>
+
+#include "../../headers/helpers/SystemMessages.h"
 #include "../../headers/quizes/QuizAttempt.h"
 
 Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true) {
@@ -9,9 +11,9 @@ Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false),
 }
 
 void Quiz::readQuiz() {
-	std::cout << "Enter quiz title: ";
+	std::cout << EnterQuizTitle;
 	std::cin >> this->quizName;
-	std::cout << "Enter number of questions: ";
+	std::cout << EnterQuestionsCount;
 	size_t questionsCount = 0;
 	std::cin >> questionsCount;
 	std::cin.ignore();
@@ -108,7 +110,7 @@ void Quiz::readFromBinaryFile(std::ifstream& ifs) {
 QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 
 	if (!this->isActive || !this->isApproved){
-		throw std::invalid_argument("This course is unavailable at the moment.");
+		throw std::invalid_argument(QuizUnavailable.data());
 	}
 
 	int result = 0;
@@ -134,7 +136,7 @@ QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 	std::cout << "Your quiz score is " << result << "/" << this->maxPoints << std::endl;
 
 	if (mode == QuizMode::Test){
-		std::cout << "This quiz in test mode. This points will not be added to your score!" << std::endl;
+		std::cout << TestModeInfo << std::endl;
 	}
 
 	result = mode == QuizMode::Test ? 0 : result;

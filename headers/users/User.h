@@ -8,6 +8,8 @@ public:
 	User(const MyString& first_name, const MyString& last_name, const MyString& username,
 		const MyString& password, int id);
 
+	virtual ~User() = default;
+
 
 	// TODO: Add getters if needed
 	MyString getFirstName() const;

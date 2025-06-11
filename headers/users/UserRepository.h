@@ -13,6 +13,7 @@ public:
 
 	void addUser(const User* user);
 	User* findUser(int userId) const;
+	User* findByUsername(const MyString& username) const;
 
 	void readFromBinaryFile(const MyString& filename);
 	void writeToBinaryFile(const MyString& filename) const;

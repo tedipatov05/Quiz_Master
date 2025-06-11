@@ -1,12 +1,17 @@
 #pragma once
+#include <iostream>
+
 #include "Message.h"
 #include "Report.h"
 #include "challenges/Challenge.h"
 #include "challenges/UserChallenge.h"
+#include "helpers/SystemMessages.h"
 #include "helpers/Vector.hpp"
 #include "quizes/Quiz.h"
 #include "quizes/UserQuiz.h"
 #include "users/UserRepository.h"
+#include "quizes/QuizAttempt.h"
+//#include "helpers/HelperFunctions.hpp"
 
 class Context{
 
@@ -16,11 +21,14 @@ public:
 	Vector<Quiz> quizzes;
 	Vector<QuizAttempt> quizAttempts;
 	Vector<Challenge> challeges;
-	Vector<UserChallenge> userChallenge;
+	Vector<UserChallenge> userChallenges;
 	Vector<UserQuiz> likedQuizzes;
 	Vector<UserQuiz> favouriteQuizzes;
 	Vector<Report> reports;
 	Vector<Message> messages;
+
+	int currentUserId;
+	UserType currentUserType;
 
 	static int nextUserId;
 	static int nextQuizId;
@@ -47,7 +55,39 @@ private:
 	void readReports(const MyString& filename);
 	void readMessages(const MyString& filename);
 
+	void seedChallenges(ChallengeType type, int step, int end, int& id);
 
+	
 
 };
+
+template <typename T>
+void readFromBinaryFile(const MyString& filename, Vector<T>& objects) {
+	std::ifstream ifs(filename.data(), std::ios::binary);
+
+	if (!ifs.is_open()) {
+		std::cout << FileNotOpened << std::endl;
+		return;
+	}
+
+	ifs.seekg(std::ios::beg);
+
+	objects.clear();
+
+	while (!ifs.eof()) {
+
+		T object;
+		object.readFromBinaryFile(ifs);
+
+		if (!ifs){
+			break;
+		}
+
+		objects.push_back(object);
+	}
+
+	ifs.close();
+}
+
+
 

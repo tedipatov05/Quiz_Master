@@ -19,6 +19,11 @@ int Challenge::calcPoints() const{
 	}
 }
 
+int Challenge::id() const{
+	return this->_id;
+}
+
+
 
 void Challenge::writeToBinaryFile(std::ofstream& ofs) const{
 	ofs.write((const char*)&this->_id, sizeof(this->_id));

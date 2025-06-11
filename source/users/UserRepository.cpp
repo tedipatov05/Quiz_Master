@@ -141,6 +141,17 @@ void UserRepository::resize(size_t newCap) {
 	this->_users = newUsers;
 }
 
+User* UserRepository::findByUsername(const MyString& username) const{
+	for (size_t i = 0; i < this->size(); i++){
+		if (this->_users[i]->getUsername() == username){
+			return this->_users[i];
+		}
+	}
+
+
+	return nullptr;
+}
+
 
 
 

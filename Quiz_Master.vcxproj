@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\SignUpCommand.cpp" />
+    <ClCompile Include="source\commands\Command.cpp" />
     <ClCompile Include="source\Context.cpp" />
     <ClCompile Include="source\quizes\UserQuiz.cpp" />
     <ClCompile Include="source\quizes\QuizAttempt.cpp" />
@@ -152,10 +154,13 @@
     <ClCompile Include="source\Time.cpp" />
     <ClCompile Include="source\challenges\UserChallenge.cpp" />
     <ClCompile Include="source\users\UserRepository.cpp" />
+    <ClCompile Include="source\helpers\Validate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\Command.h" />
     <ClInclude Include="headers\Context.h" />
     <ClInclude Include="headers\challenges\Challenge.h" />
+    <ClInclude Include="headers\helpers\SystemMessages.h" />
     <ClInclude Include="headers\users\Admin.h" />
     <ClInclude Include="headers\helpers\Constants.h" />
     <ClInclude Include="headers\helpers\MyString.h" />
@@ -181,6 +186,8 @@
     <ClInclude Include="headers\quizes\QuizAttempt.h" />
     <ClInclude Include="headers\quizes\UserQuiz.h" />
     <ClInclude Include="headers\users\UserRepository.h" />
+    <ClInclude Include="headers\commands\SignUpCommand.h" />
+    <ClInclude Include="headers\helpers\Validate.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

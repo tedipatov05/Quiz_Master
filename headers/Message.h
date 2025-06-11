@@ -13,9 +13,10 @@ public:
 	void print(std::ostream& os) const;
 
 	const MyString& receiver() const;
+	const MyString& content() const;
 
-	void readFromFile(std::ifstream& ifs);
-	void writeToFile(std::ofstream& ofs) const;
+	void readFromBinaryFile(std::ifstream& ifs);
+	void writeToBinaryFile(std::ofstream& ofs) const;
 
 private:
 

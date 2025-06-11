@@ -15,8 +15,8 @@ public:
 	Challenge(int id, int count, ChallengeType type);
 
 	int calcPoints() const;
+	int id() const;
 	
-
 	void writeToBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs);
 
