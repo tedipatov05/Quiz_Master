@@ -1,19 +1,2 @@
-﻿  RemoveQuizCommand.cpp
-D:\ФМИ\Quiz_Master\Quiz_Master\headers\commands\Command.h(63,10): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-  (compiling source file 'source/commands/RemoveQuizCommand.cpp')
-      D:\ФМИ\Quiz_Master\Quiz_Master\headers\commands\Command.h(63,10):
-      the template instantiation context (the oldest one first) is
-          D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RemoveQuizCommand.cpp(34,2):
-          see reference to function template instantiation 'void updateObjectInBinaryFile<Quiz>(const MyString &,const T &,const T &)' being compiled
-          with
-          [
-              T=Quiz
-          ]
-          D:\ФМИ\Quiz_Master\Quiz_Master\headers\commands\Command.h(76,17):
-          see reference to function template instantiation 'int findPositionInFile<Quiz>(const MyString &,const T &)' being compiled
-          with
-          [
-              T=Quiz
-          ]
-  
+﻿  Quiz_Master.cpp
   Quiz_Master.vcxproj -> D:\ФМИ\Quiz_Master\x64\Debug\Quiz_Master.exe

@@ -31,6 +31,7 @@ public:
 	bool approved() const;
 	bool active() const;
 	int creator() const;
+	MyString name() const;
 
 
 private:

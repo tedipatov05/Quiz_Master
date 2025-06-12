@@ -18,6 +18,8 @@ public:
 	static void isApproved(const Quiz* quiz);
 
 	static void checkPermission(const Context& ctx, UserType type);
+	static void isLoggedIn(const Context& ctx);
+	static void isBanned(const User* user);
 
 };
 

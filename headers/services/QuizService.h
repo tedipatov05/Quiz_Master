@@ -7,6 +7,7 @@ class QuizService{
 public:
 
 	static Quiz* getQuizById(Context& ctx, int id);
+	static void printPendingQuizzes(const Context& ctx);
 
 };
 

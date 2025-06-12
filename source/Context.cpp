@@ -57,7 +57,7 @@ void Context::readUserChallenge(const MyString& filename){
 	readFromBinaryFile<UserChallenge>(filename, this->userChallenges);
 }
 
-Context::Context() : currentUserType(UserType::None), currentUserId(-1) {
+Context::Context() : currentUserType(UserType::None), currentUserId(-1), areUsersChanged(false) {
 	this->users.readFromBinaryFile(userFile);
 	this->readQuizzes(quizzesFile);
 	this->readChallenges(challengesFile);
@@ -66,6 +66,7 @@ Context::Context() : currentUserType(UserType::None), currentUserId(-1) {
 	this->readMessages(messagesFile);
 	this->readReports(reportsFile);
 	this->readUserChallenge(userChallengesFile);
+
 
 }
 
@@ -76,6 +77,13 @@ Context* Context::getInstance(){
 
 	return instance;
 }
+
+Context::~Context(){
+	if (areUsersChanged){
+		this->users.writeToBinaryFile(userFile);
+	}
+}
+
 
 
 

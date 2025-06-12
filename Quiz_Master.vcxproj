@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\PendingQuizzesCommand.cpp" />
+    <ClCompile Include="source\commands\BanUserCommand.cpp" />
     <ClCompile Include="source\services\MessageService.cpp" />
     <ClCompile Include="source\commands\RemoveQuizCommand.cpp" />
     <ClCompile Include="source\services\ReportService.cpp" />
@@ -166,6 +168,7 @@
     <ClCompile Include="source\commands\ViewReportsCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\BanUserCommand.h" />
     <ClInclude Include="headers\commands\ApproveQuizCommand.h" />
     <ClInclude Include="headers\commands\Command.h" />
     <ClInclude Include="headers\Context.h" />
@@ -206,6 +209,7 @@
     <ClInclude Include="headers\services\ReportService.h" />
     <ClInclude Include="headers\commands\RemoveQuizCommand.h" />
     <ClInclude Include="headers\services\MessageService.h" />
+    <ClInclude Include="headers\commands\PendingQuizzesCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

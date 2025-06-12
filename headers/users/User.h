@@ -19,6 +19,7 @@ public:
 	int getLevel() const;
 	int getPoints() const;
 	int getUserId() const;
+	bool banned() const;
 
 	void ban();
 

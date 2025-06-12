@@ -37,10 +37,8 @@ void RemoveQuizCommand::execute(){
 
 	MessageService::sendMessage(ctx, quiz->creator(), reason);
 
-	std::cout << SuccessfullyRejected << std::endl;
+	std::cout << SuccessfullyRemoved << std::endl;
 
-
-	
 }
 
 

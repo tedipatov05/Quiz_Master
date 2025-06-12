@@ -18,6 +18,7 @@ void LoginCommand::execute(){
 
 	try{
 		Validate::isUserNotExists(user);
+		Validate::isBanned(user);
 		Validate::areEqual(user->getPassword(), data[2], InvalidPassword);
 	}
 	catch (std::invalid_argument ex){

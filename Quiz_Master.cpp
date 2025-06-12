@@ -21,6 +21,7 @@
 #include "headers/users/User.h"
 #include "headers/Context.h"
 #include "headers/commands/ApproveQuizCommand.h"
+#include "headers/commands/BanUserCommand.h"
 #include "headers/commands/LoginCommand.h"
 #include "headers/commands/RemoveQuizCommand.h"
 #include "headers/commands/SignUpCommand.h"
@@ -30,7 +31,7 @@
 int main()
 {
 
-	Quiz quiz = Quiz(100, 1);
+	/*Quiz quiz = Quiz(100, 1);
 	quiz.read();
 	std::ofstream ofs(quizzesFile.data(), std::ios::binary);
 
@@ -44,21 +45,22 @@ int main()
 	admin->writeToBinaryFile(ostream);
 	player->writeToBinaryFile(ostream);
 
-	ostream.close();
+	ostream.close();*/
 
 
 	Context* ctx = Context::getInstance();
 
-	LoginCommand* sign_up_command = new LoginCommand("login adminov1 1234", *ctx);
+	LoginCommand* sign_up_command = new LoginCommand("login player1 12345", *ctx);
 
 	sign_up_command->execute();
 
-	RemoveQuizCommand* approve = new RemoveQuizCommand("remove-quiz 1 test removing", *ctx);
+	//BanUserCommand* ban = new BanUserCommand("ban player1", *ctx);
 
-	approve->execute();
+	//ban->execute();
 
 	delete sign_up_command;
-	delete approve;
+	//delete ban;
+	delete ctx;
 
 
 }

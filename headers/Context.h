@@ -32,13 +32,14 @@ public:
 
 	static int nextUserId;
 	static int nextQuizId;
+	bool areUsersChanged;
 
 	Context(const Context& context) = delete;
 	Context& operator=(const Context& context) = delete;
 
 	static Context* getInstance();
 
-
+	~Context();
 protected:
 
 	static Context* instance;

@@ -132,6 +132,12 @@
     <ClCompile Include="source\services\MessageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\commands\BanUserCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\PendingQuizzesCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -252,6 +258,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\services\MessageService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\BanUserCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\PendingQuizzesCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

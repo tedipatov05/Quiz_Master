@@ -186,6 +186,11 @@ void Quiz::reject(){
 	this->isApproved = false;
 }
 
+MyString Quiz::name() const{
+	return this->quizName;
+}
+
+
 bool operator==(const Quiz& lhs, const Quiz& rhs){
 	return lhs.id() == rhs.id();
 }

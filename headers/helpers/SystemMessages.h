@@ -32,6 +32,7 @@ const MyString QuizNotApproved = "This quiz is not approved.";
 const MyString SuccessfullyRejected = "Successfully rejected!";
 const MyString SuccessfullyApproved = "Successfully approved!";
 const MyString SuccessfullyRemoved = "Successfully removed!";
+const MyString NoQuizzes = "No quizzes to display";
 
 
 //------------------------SYSTEM MESSAGES--------------------------
@@ -45,6 +46,8 @@ const MyString UserNotExists = "This user does not exists.";
 const MyString Error = "Error occured while processing the command!";
 const MyString AlreadyLoggedOut = "You are already logged out!";
 const MyString NotAllowed = "You are not allowed to execute this command!";
+const MyString NotLoggedIn = "You are not logged in.";
+const MyString Banned = "You are banned from Admin.";
 
 
 

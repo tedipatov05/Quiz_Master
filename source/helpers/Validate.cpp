@@ -84,6 +84,20 @@ void Validate::checkPermission(const Context& ctx, UserType type){
 	}
 }
 
+void Validate::isLoggedIn(const Context& ctx){
+	if (ctx.currentUserId == -1){
+		throw std::invalid_argument(NotLoggedIn.data());
+	}
+}
+
+void Validate::isBanned(const User* user){
+	if (user->banned()){
+		throw std::invalid_argument(Banned.data());
+	}
+}
+
+
+
 
 
 
