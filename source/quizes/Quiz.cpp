@@ -10,7 +10,7 @@ Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false),
 
 }
 
-void Quiz::readQuiz() {
+void Quiz::read() {
 	std::cout << EnterQuizTitle;
 	std::cin >> this->quizName;
 	std::cout << EnterQuestionsCount;
@@ -22,6 +22,11 @@ void Quiz::readQuiz() {
 		MyString type;
 		std::cout << "Enter question " << i + 1 << " type (T/F, SC, MC, ShA, MP): ";
 		std::cin >> type;
+
+		if (type.isEmpty()){
+			std::cout << InvalidFormat << std::endl;
+			return;
+		}
 
 		Question* question = QuestionFactory::createQuestion(fromStringToQuestionType(type));
 		question->read();
@@ -69,7 +74,7 @@ void Quiz::saveInTextFile(std::ofstream& ofs, const User* creator) const {
 
 }
 
-void Quiz::saveInBinaryFile(std::ofstream& ofs) const {
+void Quiz::writeToBinaryFile(std::ofstream& ofs) const {
 
 	ofs.write((const char*)&this->quizId, sizeof(this->quizId));
 	ofs.write((const char*)&this->creatorId, sizeof(this->creatorId));
@@ -155,7 +160,7 @@ void Quiz::shuffle(Vector<int>& numbers)
 {
 	int n = numbers.size();
 	for (int i = n - 1; i > 0; --i) {
-		int j = rand() % (i + 1);  // random index from 0 to i
+		int j = rand() % (i + 1);  
 		std::swap(numbers[i], numbers[j]);
 	}
 }
@@ -171,6 +176,21 @@ bool Quiz::approved() const{
 bool Quiz::active() const{
 	return isActive;
 }
+
+int Quiz::creator() const{
+	return this->creatorId;
+}
+
+void Quiz::reject(){
+	this->isActive = false;
+	this->isApproved = false;
+}
+
+bool operator==(const Quiz& lhs, const Quiz& rhs){
+	return lhs.id() == rhs.id();
+}
+
+
 
 
 

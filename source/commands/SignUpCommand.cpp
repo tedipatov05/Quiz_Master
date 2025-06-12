@@ -32,7 +32,7 @@ void SignUpCommand::execute(){
 	Context::nextUserId++;
 	ctx.users.addUser(user);
 
-	writeObjectToBinaryFile(userFile, user);
+	writeObjectToBinaryFile(userFile, *user);
 
 	delete user;
 

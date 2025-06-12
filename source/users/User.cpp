@@ -1,7 +1,7 @@
 #include "../../headers/users/User.h"
 
 User::User(const MyString& first_name, const MyString& last_name, const MyString& username, const MyString& password, int id)
-	: first_name(first_name), last_name(last_name), username(username), password(password), id(id), level(0), points(0) {
+	: first_name(first_name), last_name(last_name), username(username), password(password), id(id), level(0), points(0), isBanned(false) {
 	
 }
 
@@ -54,6 +54,11 @@ void User::increasePoints(int points){
 int User::getUserId() const{
 	return this->id;
 }
+
+void User::ban(){
+	this->isBanned = true;
+}
+
 
 
 

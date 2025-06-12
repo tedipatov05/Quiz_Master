@@ -1,4 +1,10 @@
-D:\ФМИ\Quiz_Master\Quiz_Master\LogoutCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\LogoutCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\services\MessageService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\MessageService.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RemoveQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\RemoveQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\services\ReportService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ReportService.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RejectQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\RejectQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\services\QuizService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\QuizService.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ApproveQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ApproveQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\LogoutCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\LogoutCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\LoginCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\LoginCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\SignUpCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\SignUpCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\Command.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Command.obj
@@ -28,3 +34,4 @@ D:\ФМИ\Quiz_Master\Quiz_Master\source\Time.cpp;D:\ФМИ\Quiz_Master\Quiz_Mas
 D:\ФМИ\Quiz_Master\Quiz_Master\source\challenges\UserChallenge.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserChallenge.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\users\UserRepository.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserRepository.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\Validate.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Validate.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewReportsCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewReportsCommand.obj

@@ -114,7 +114,22 @@
     <ClCompile Include="source\commands\ApproveQuizCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\quizes\services\QuizService.cpp">
+    <ClCompile Include="source\services\QuizService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\RejectQuizCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\ViewReportsCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\services\ReportService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\RemoveQuizCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\services\MessageService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -221,7 +236,22 @@
     <ClInclude Include="headers\commands\ApproveQuizCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="headers\quizes\services\QuizService.h">
+    <ClInclude Include="headers\services\QuizService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\RejectQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\ViewReportsCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\services\ReportService.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\RemoveQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\services\MessageService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

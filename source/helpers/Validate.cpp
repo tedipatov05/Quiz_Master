@@ -71,13 +71,18 @@ void Validate::isQuizExists(const Quiz* quiz){
 }
 
 void Validate::isApproved(const Quiz* quiz){
-	if (quiz->approved()){
-		throw std::invalid_argument(QuizDeleted.data());
+	if (!quiz->approved()){
+		throw std::invalid_argument(QuizNotApproved.data());
 	}
 }
 
 
 
+void Validate::checkPermission(const Context& ctx, UserType type){
+	if (ctx.currentUserType != type){
+		throw std::invalid_argument(NotAllowed.data());
+	}
+}
 
 
 

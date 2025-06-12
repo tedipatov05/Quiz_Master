@@ -6,7 +6,7 @@ class Validate{
 
 public:
 
-	static void removeUnnecessarySpaces(MyString& data);
+	static void removeUnnecessarySpaces(MyString& input);
 	static void areEqual(const MyString& str1, const MyString& str2, const MyString& errorMessage);
 	static void isUserAlreadyExists(const MyString& username, const Context& ctx);
 	static void isUserNotExists(const User* user);
@@ -16,6 +16,8 @@ public:
 	static void isAlreadyDeleted(const Quiz* quiz);
 	static void isQuizExists(const Quiz* quiz);
 	static void isApproved(const Quiz* quiz);
+
+	static void checkPermission(const Context& ctx, UserType type);
 
 };
 

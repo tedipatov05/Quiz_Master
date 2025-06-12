@@ -20,6 +20,8 @@ public:
 	int getPoints() const;
 	int getUserId() const;
 
+	void ban();
+
 	void increasePoints(int points);
 
 	virtual UserType role() const = 0;
@@ -27,6 +29,8 @@ public:
 	virtual void writeToBinaryFile(std::ofstream& ofs) const;
 	virtual void readFromBinaryFile(std::ifstream& ifs);
 	virtual void print(std::ostream& os) const = 0;
+
+
 
 
 protected:
@@ -37,5 +41,6 @@ protected:
 	MyString password;
 	int level;
 	int points;
+	bool isBanned;
 };
 

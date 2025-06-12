@@ -1,16 +1,16 @@
 #include "../../headers/commands/ApproveQuizCommand.h"
 
 #include "../../headers/helpers/Validate.h"
-#include "../../headers/quizes/services/QuizService.h"
+#include "../../headers/services/QuizService.h"
 
-ApproveQuizCommand::ApproveQuizCommand(const MyString& buffer, Context& ctx) : ApproveQuizCommand(buffer, ctx){
+ApproveQuizCommand::ApproveQuizCommand(const MyString& buffer, Context& ctx) : Command(buffer, ctx){
 	
 }
 
 void ApproveQuizCommand::execute() {
 
 	if (ctx.currentUserType != UserType::Admin) {
-		std::cout << NoAllowed << std::endl;
+		std::cout << NotAllowed << std::endl;
 		return;
 	}
 
@@ -33,7 +33,12 @@ void ApproveQuizCommand::execute() {
 		return;
 	}
 
+	Quiz oldQuiz(*quiz);
 
 	quiz->approveQuiz();
+
+	updateObjectInBinaryFile(quizzesFile, oldQuiz, *quiz);
+
+	std::cout << SuccessfullyApproved << std::endl;
 
 }

@@ -20,15 +20,17 @@ public:
 	void saveInTextFile(std::ofstream& ofs, const User* creator) const;
 	QuizAttempt start(QuizMode mode, bool isShuffle, int userId);
 	void print(std::ostream& ofs) const;
-	void saveInBinaryFile(std::ofstream& ofs) const;
+	void writeToBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs);
-	void readQuiz();
+	void read();
 
 	void approveQuiz();
+	void reject();
 
 	int id() const;
 	bool approved() const;
 	bool active() const;
+	int creator() const;
 
 
 private:
@@ -46,4 +48,7 @@ private:
 	void writeCenteredRow(std::ostream& ofs, const MyString& line) const;
 	void shuffle(Vector<int>& numbers);
 };
+
+
+bool operator==(const Quiz& lhs, const Quiz& rhs);
 

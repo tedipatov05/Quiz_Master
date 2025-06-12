@@ -7,7 +7,7 @@ Report::Report(const MyString& reporter, const MyString& quizCreator, int quizId
 
 void Report::print(std::ostream& os) const{
 	os << this->time.getTime() << " | sent by " << this->reporter
-		<< " | quiz ID " << quizId << " by " << this->quizCreator << " | reason: " << reason;
+		<< " | quiz ID " << quizId << " by " << this->quizCreator << " | reason: " << reason << std::endl;
 	
 }
 

@@ -21,4 +21,19 @@ Vector<MyString> Command::split(const MyString& str, const MyString& delimiter) 
 	return result;
 }
 
+//void Command::sendMessage(int receiverId, const MyString& messageData){
+//
+//	User* quizCreator = ctx.users.findUser(receiverId);
+//	User* user = ctx.users.findUser(ctx.currentUserId);
+//	
+//
+//	Message message(messageData, quizCreator->getUsername(), user->getUsername());
+//
+//	ctx.messages.push_back(message);
+//	writeObjectToBinaryFile(messagesFile, message);
+//
+//	std::cout << SuccessfullyRejected << std::endl;
+//}
+
+
 
