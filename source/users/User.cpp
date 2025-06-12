@@ -34,6 +34,11 @@ MyString User::getUsername() const{
 	return this->username;
 }
 
+MyString User::getPassword() const{
+	return this->password;
+}
+
+
 int User::getLevel() const{
 	return this->level;
 }

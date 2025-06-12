@@ -1,13 +1,15 @@
 #include "../../headers/users/UserFactory.h"
 
+#include "../../headers/users/Admin.h"
+#include "../../headers/users/Player.h"
 
-// TODO: Add Player and Admin
+
 User* UserFactory::createUser(UserType user_type){
 	switch (user_type){
 		case UserType::Player:
-			return nullptr;
+			return new Player();
 		case UserType::Admin:
-			return nullptr;
+			return new Admin();
 		default:
 			return nullptr;
 		

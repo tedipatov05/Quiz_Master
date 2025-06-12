@@ -10,3 +10,5 @@ int toInt(const MyString& str);
 double toDouble(const MyString& str);
 QuestionType fromStringToQuestionType(const MyString& type);
 MyString toString(int number);
+
+void createFileIfNotExists(std::ifstream& ifs, const MyString& filename);

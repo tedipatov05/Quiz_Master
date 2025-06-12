@@ -105,6 +105,18 @@
     <ClCompile Include="source\helpers\Validate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\commands\LoginCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\LogoutCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\ApproveQuizCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\quizes\services\QuizService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -198,6 +210,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\helpers\Validate.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\LoginCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\LogoutCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\ApproveQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\quizes\services\QuizService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

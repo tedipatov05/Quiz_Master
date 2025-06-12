@@ -15,6 +15,7 @@ public:
 	MyString getFirstName() const;
 	MyString getLastName() const;
 	MyString getUsername() const;
+	MyString getPassword() const;
 	int getLevel() const;
 	int getPoints() const;
 	int getUserId() const;

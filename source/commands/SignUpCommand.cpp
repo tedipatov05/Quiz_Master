@@ -36,7 +36,7 @@ void SignUpCommand::execute(){
 
 	delete user;
 
-	std::cout << "Successfully signed up!" << std::endl;
+	std::cout << SuccessfulSignUp << std::endl;
 
 }
 

@@ -38,6 +38,7 @@ public:
 
 	static Context* getInstance();
 
+
 protected:
 
 	static Context* instance;
@@ -64,6 +65,9 @@ private:
 template <typename T>
 void readFromBinaryFile(const MyString& filename, Vector<T>& objects) {
 	std::ifstream ifs(filename.data(), std::ios::binary);
+
+	createFileIfNotExists(ifs, filename);
+
 
 	if (!ifs.is_open()) {
 		std::cout << FileNotOpened << std::endl;

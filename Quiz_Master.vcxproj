@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\quizes\services\QuizService.cpp" />
+    <ClCompile Include="source\commands\ApproveQuizCommand.cpp" />
+    <ClCompile Include="source\commands\LogoutCommand.cpp" />
+    <ClCompile Include="source\commands\LoginCommand.cpp" />
     <ClCompile Include="source\commands\SignUpCommand.cpp" />
     <ClCompile Include="source\commands\Command.cpp" />
     <ClCompile Include="source\Context.cpp" />
@@ -157,6 +161,7 @@
     <ClCompile Include="source\helpers\Validate.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\ApproveQuizCommand.h" />
     <ClInclude Include="headers\commands\Command.h" />
     <ClInclude Include="headers\Context.h" />
     <ClInclude Include="headers\challenges\Challenge.h" />
@@ -188,6 +193,9 @@
     <ClInclude Include="headers\users\UserRepository.h" />
     <ClInclude Include="headers\commands\SignUpCommand.h" />
     <ClInclude Include="headers\helpers\Validate.h" />
+    <ClInclude Include="headers\commands\LoginCommand.h" />
+    <ClInclude Include="headers\commands\LogoutCommand.h" />
+    <ClInclude Include="headers\quizes\services\QuizService.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,5 +1,24 @@
-﻿  MyString.cpp
-D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\MyString.cpp(331,23): warning C4309: 'return': truncation of constant value
-D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\MyString.cpp(336,11): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\MyString.cpp(340,22): warning C4309: 'return': truncation of constant value
+﻿  Quiz_Master.cpp
+  Context.cpp
+  Command.cpp
+  LoginCommand.cpp
+  SignUpCommand.cpp
+  Utils.cpp
+  Validate.cpp
+  MatchingPairsQuestion.cpp
+  MultipleChoiceQuestion.cpp
+  ShortAnswerQuestion.cpp
+  SingleChoiceQuestion.cpp
+  TrueOrFalseQuestion.cpp
+  Quiz.cpp
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(51,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(119,18): warning C4267: 'argument': conversion from 'size_t' to 'const T', possible loss of data
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(119,18): warning C4267:         with
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(119,18): warning C4267:         [
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(119,18): warning C4267:             T=int
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(119,18): warning C4267:         ]
+D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(156,8): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  UserFactory.cpp
+  UserRepository.cpp
+  Generating Code...
   Quiz_Master.vcxproj -> D:\ФМИ\Quiz_Master\x64\Debug\Quiz_Master.exe

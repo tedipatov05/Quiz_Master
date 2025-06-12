@@ -160,6 +160,20 @@ void Quiz::shuffle(Vector<int>& numbers)
 	}
 }
 
+int Quiz::id() const{
+	return this->quizId;
+}
+
+bool Quiz::approved() const{
+	return isApproved;
+}
+
+bool Quiz::active() const{
+	return isActive;
+}
+
+
+
 
 
 

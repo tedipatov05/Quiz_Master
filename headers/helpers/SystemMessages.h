@@ -25,11 +25,22 @@ const MyString MultipleChoicePossibleAnswers = "Enter possible answers count: ";
 const MyString MultipleChoiceCorrectAnswers = "Enter correct answers (comma-separated): ";
 
 
+const MyString QuizAlreadyApproved = "This quiz is already approved";
+const MyString QuizDeleted = "This quiz is deleted.";
+const MyString QuizNoExists = "This quiz does not exists";
+
 //------------------------SYSTEM MESSAGES--------------------------
 const MyString AlreadyLoggedIn = "Could not sign up while you are logged in.";
 const MyString AlreadyExists = "This account already exists!";
 const MyString InvalidPassword = "Invalid password!";
 const MyString CouldNotOpen = "Could not open the file.";
+const MyString SuccessfulSignUp = "Successfully signed up!";
+const MyString SuccessfulLogIn = "Successfully logged in!";
+const MyString UserNotExists = "This user does not exists.";
+const MyString Error = "Error occured while processing the command!";
+const MyString AlreadyLoggedOut = "You are already logged out!";
+const MyString NoAllowed = "You are not allowed to execute this command!";
+
 
 
 

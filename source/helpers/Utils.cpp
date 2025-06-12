@@ -1,5 +1,6 @@
 #include "../../headers/helpers/Utils.h"
 #include "../../headers/helpers/Constants.h"
+#include "../../headers/helpers/SystemMessages.h"
 #include <iostream>
 #pragma warning(disable:4996)
 
@@ -129,6 +130,21 @@ MyString toString(int number) {
 
 	return MyString(buffer);
 }
+
+void createFileIfNotExists(std::ifstream& ifs, const MyString& filename){
+	if (!ifs) {
+		std::ofstream createFile(filename.data());
+		if (!createFile) {
+			std::cout << Error << std::endl;
+			return;
+		}
+
+		createFile.close();
+		ifs.open(filename.data(), std::ios::binary | std::ios::in);
+	}
+
+}
+
 
 
 

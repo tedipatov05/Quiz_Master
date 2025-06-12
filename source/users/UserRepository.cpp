@@ -3,6 +3,8 @@
 #include <iostream>
 
 #include "../../headers/helpers/Constants.h"
+#include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Utils.h"
 
 
 UserRepository::UserRepository() {
@@ -86,8 +88,11 @@ void UserRepository::copyDynamicMemory(const UserRepository& other) {
 
 void UserRepository::readFromBinaryFile(const MyString& filename) {
 	std::ifstream ifs(filename.data(), std::ios::binary);
+
+	createFileIfNotExists(ifs, filename);
+
 	if (!ifs) {
-		std::cout << "Error opening file: " << filename << std::endl;
+		std::cout << CouldNotOpen << std::endl;
 		return;
 	}
 
@@ -102,7 +107,6 @@ void UserRepository::readFromBinaryFile(const MyString& filename) {
 		User* user = UserFactory::createUser(type);
 
 		if (!user) {
-			std::cout << "Error creating a user" << std::endl;
 			break;
 		}
 
@@ -116,7 +120,7 @@ void UserRepository::readFromBinaryFile(const MyString& filename) {
 void UserRepository::writeToBinaryFile(const MyString& filename) const {
 	std::ofstream ofs(filename.data(), std::ios::binary);
 	if (!ofs) {
-		std::cout << "Error opening file: " << filename << std::endl;
+		std::cout << CouldNotOpen << std::endl;
 		return;
 	}
 

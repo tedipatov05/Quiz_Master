@@ -44,5 +44,42 @@ void Validate::isUserAlreadyExists(const MyString& username, const Context& ctx)
 	
 }
 
+void Validate::isUserNotExists(const User* user){
+
+	if (user == nullptr){
+		throw std::invalid_argument(UserNotExists.data());
+	}
+
+}
+
+void Validate::isAlreadyApproved(const Quiz* quiz){
+	if (quiz->approved()){
+		throw std::invalid_argument(QuizAlreadyApproved.data());
+	}
+}
+
+void Validate::isAlreadyDeleted(const Quiz* quiz){
+	if (!quiz->active()){
+		throw std::invalid_argument(QuizDeleted.data());
+	}
+}
+
+void Validate::isQuizExists(const Quiz* quiz){
+	if (!quiz){
+		throw std::invalid_argument(QuizNoExists.data());
+	}
+}
+
+void Validate::isApproved(const Quiz* quiz){
+	if (quiz->approved()){
+		throw std::invalid_argument(QuizDeleted.data());
+	}
+}
+
+
+
+
+
+
 
 

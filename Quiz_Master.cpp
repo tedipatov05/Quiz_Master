@@ -20,6 +20,8 @@
 #include "headers/users/Player.h"
 #include "headers/users/User.h"
 #include "headers/Context.h"
+#include "headers/commands/LoginCommand.h"
+#include "headers/commands/SignUpCommand.h"
 #include "headers/helpers/Validate.h"
 
 int main()
@@ -143,10 +145,19 @@ int main()
 	//std::cout << quizzes.size();
 
 
-	MyString str = "             Patlaka     Patov               ";
-	Validate::removeUnnecessarySpaces(str);
-	MyString res("Patlaka Patov");
-	std::cout << std::boolalpha << (str == res);
+	//MyString str = "             Patlaka     Patov               ";
+	//Validate::removeUnnecessarySpaces(str);
+	//MyString res("Patlaka Patov");
+	//std::cout << std::boolalpha << (str == res);
 
-	
+
+	Context* ctx = Context::getInstance();
+
+	LoginCommand* sign_up_command = new LoginCommand("login testov 12345", *ctx);
+
+	sign_up_command->execute();
+
+	delete sign_up_command;
+
+
 }

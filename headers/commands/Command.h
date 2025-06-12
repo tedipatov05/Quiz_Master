@@ -17,6 +17,7 @@ protected:
 
 	MyString buffer;
 	Context& ctx;
+
 };
 
 template <typename T>
@@ -29,7 +30,7 @@ void writeObjectToBinaryFile(const MyString& filename, const T& object){
 		return;
 	}
 
-	object.writeToBinaryFile(ofs);
+	object->writeToBinaryFile(ofs);
 
 
 	ofs.close();

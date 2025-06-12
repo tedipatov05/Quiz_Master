@@ -26,6 +26,10 @@ public:
 
 	void approveQuiz();
 
+	int id() const;
+	bool approved() const;
+	bool active() const;
+
 
 private:
 
