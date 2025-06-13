@@ -36,6 +36,10 @@ const MyString NoQuizzes = "No quizzes to display";
 const MyString CreatedQuizzes = "Created quizzes: ";
 const MyString LikedQuizzes = "Liked quizzes: ";
 const MyString FavouriteQuizzes = "Favourite quizzes: ";
+const MyString AlreadyLiked = "This quiz is already liked!";
+const MyString NotLiked = "This quiz is not liked!";
+const MyString AlreadyAddedToFavs = "This quiz is already added to favourite quizzes";
+const MyString NotAddedToFavs = "This quiz is not added to favourite quizzes";
 
 //------------------------SYSTEM MESSAGES--------------------------
 const MyString AlreadyLoggedIn = "Could not sign up while you are logged in.";

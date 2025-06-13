@@ -1,14 +1,14 @@
-#include "../../headers/commands/ViewUserQuizzesCommand.h"
+#include "../../headers/commands/LikeQuizCommand.h"
 
 #include "../../headers/helpers/Validate.h"
 #include "../../headers/services/QuizService.h"
 #include "../../headers/services/UserService.h"
 
-ViewUserQuizzesCommand::ViewUserQuizzesCommand(const MyString& buffer, Context& ctx) : Command(buffer, ctx){
+LikeQuizCommand::LikeQuizCommand(const MyString& buffer, Context& ctx) : Command(buffer, ctx){
 	
 }
 
-void ViewUserQuizzesCommand::execute(){
+void LikeQuizCommand::execute(){
 
 	Vector<MyString> data = split(buffer, " ");
 	if (data.size() != 2){
@@ -16,21 +16,26 @@ void ViewUserQuizzesCommand::execute(){
 		return;
 	}
 
+	int quizId = toInt(data[1]);
+	Quiz* quiz = QuizService::getQuizById(ctx, quizId);
 
-	User* user = ctx.users.findByUsername(data[1]);
 	try{
+
 		Validate::isLoggedIn(ctx);
 		Validate::checkPermission(ctx, UserType::Player);
-		Validate::isUserNotExists(user);
+		Validate::isQuizExists(quiz);
 		
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
 	}
 
-	Vector<Quiz> quizzes = UserService::getUserQuizzes(ctx, user->getUserId());
-	QuizService::printQuizzesInfo(ctx, quizzes);
+	if (QuizService::isQuizLiked(ctx, quiz)){
+		std::cout << AlreadyLiked << std::endl;
+		return;
+	}
 
+	QuizService::likeQuiz(ctx, quiz);
 }
 
 

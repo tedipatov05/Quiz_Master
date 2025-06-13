@@ -1,6 +1,6 @@
 #include "../../headers/quizes/UserQuiz.h"
 
-UserQuiz::UserQuiz(int userId, int quizId) : _userId(userId), _quizId(quizId){
+UserQuiz::UserQuiz(int userId, int quizId) : _userId(userId), _quizId(quizId), _isActive(true){
 	
 }
 
@@ -12,14 +12,26 @@ int UserQuiz::getUserId() const{
 	return this->_userId;
 }
 
+bool UserQuiz::isActive() const{
+	return this->_isActive;
+}
+
+void UserQuiz::changeActive(){
+	this->_isActive = !this->_isActive;
+}
+
+
+
 void UserQuiz::writeToBinaryFile(std::ofstream& ofs) const{
 	ofs.write((const char*)&this->_userId, sizeof(this->_userId));
 	ofs.write((const char*)&this->_quizId, sizeof(this->_quizId));
+	ofs.write((const char*)&this->_isActive, sizeof(this->_isActive));
 }
 
 void UserQuiz::readFromBinaryFile(std::ifstream& ifs) const{
 	ifs.read((char*)this->_userId, sizeof(this->_userId));
 	ifs.read((char*)&this->_quizId, sizeof(this->_quizId));
+	ifs.read((char*)&this->_isActive, sizeof(this->_isActive));
 }
 
 

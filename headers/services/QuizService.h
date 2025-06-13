@@ -14,5 +14,16 @@ public:
 	static void printQuizzesInfo(const Context& ctx, const Vector<Quiz>& quizzes);
 	static MyString getQuizCreatorName(const Context& ctx, const Quiz& quiz);
 
+
+	static void likeQuiz(Context& ctx, const Quiz* quiz);
+	static bool isQuizLiked(const Context& ctx, const Quiz* quiz);
+	static void unlikeQuiz(Context& ctx, const Quiz* quiz);
+	static UserQuiz* findLike(Context& ctx, const Quiz* quiz);
+
+	static void addQuizToFavourite(Context& ctx, const Quiz* quiz);
+	static bool isQuizAddedToFavourite(const Context& ctx, const Quiz* quiz);
+	static void removeFromFavourite(Context& ctx, const Quiz* quiz);
+	static UserQuiz* findFavouriteQuiz(Context& ctx, const Quiz* quiz);
+
 };
 

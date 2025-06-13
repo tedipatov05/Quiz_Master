@@ -168,6 +168,18 @@
     <ClCompile Include="source\commands\ViewUserQuizzesCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\commands\LikeQuizCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\UnlikeQuizCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\AddToFavouriteCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\commands\RemoveFromFavouriteCommand.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -324,6 +336,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\commands\ViewUserQuizzesCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\LikeQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\UnlikeQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\AddToFavouriteCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\RemoveFromFavouriteCommand.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

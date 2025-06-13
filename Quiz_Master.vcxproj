@@ -127,6 +127,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\RemoveFromFavouriteCommand.cpp" />
+    <ClCompile Include="source\commands\AddToFavouriteCommand.cpp" />
+    <ClCompile Include="source\commands\LikeQuizCommand.cpp" />
     <ClCompile Include="source\commands\CreateQuizCommand.cpp" />
     <ClCompile Include="source\commands\MessagesCommand.cpp" />
     <ClCompile Include="source\services\ChallengesService.cpp" />
@@ -176,8 +179,10 @@
     <ClCompile Include="source\commands\ViewUserCommand.cpp" />
     <ClCompile Include="source\commands\ViewQuizzesCommand.cpp" />
     <ClCompile Include="source\commands\ViewUserQuizzesCommand.cpp" />
+    <ClCompile Include="source\commands\UnlikeQuizCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\AddToFavouriteCommand.h" />
     <ClInclude Include="headers\commands\CreateQuizCommand.h" />
     <ClInclude Include="headers\services\ChallengesService.h" />
     <ClInclude Include="headers\commands\ChallengesCommand.h" />
@@ -230,6 +235,9 @@
     <ClInclude Include="headers\commands\MessagesCommand.h" />
     <ClInclude Include="headers\commands\ViewQuizzesCommand.h" />
     <ClInclude Include="headers\commands\ViewUserQuizzesCommand.h" />
+    <ClInclude Include="headers\commands\LikeQuizCommand.h" />
+    <ClInclude Include="headers\commands\UnlikeQuizCommand.h" />
+    <ClInclude Include="headers\commands\RemoveFromFavouriteCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
