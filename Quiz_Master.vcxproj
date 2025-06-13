@@ -127,6 +127,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\CreateQuizCommand.cpp" />
+    <ClCompile Include="source\commands\MessagesCommand.cpp" />
+    <ClCompile Include="source\services\ChallengesService.cpp" />
+    <ClCompile Include="source\commands\ChallengesCommand.cpp" />
     <ClCompile Include="source\commands\PendingQuizzesCommand.cpp" />
     <ClCompile Include="source\commands\BanUserCommand.cpp" />
     <ClCompile Include="source\services\MessageService.cpp" />
@@ -166,8 +170,17 @@
     <ClCompile Include="source\users\UserRepository.cpp" />
     <ClCompile Include="source\helpers\Validate.cpp" />
     <ClCompile Include="source\commands\ViewReportsCommand.cpp" />
+    <ClCompile Include="source\commands\ViewProfileCommand.cpp" />
+    <ClCompile Include="source\services\UserService.cpp" />
+    <ClCompile Include="source\commands\ViewFinishedChallengesCommand.cpp" />
+    <ClCompile Include="source\commands\ViewUserCommand.cpp" />
+    <ClCompile Include="source\commands\ViewQuizzesCommand.cpp" />
+    <ClCompile Include="source\commands\ViewUserQuizzesCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\CreateQuizCommand.h" />
+    <ClInclude Include="headers\services\ChallengesService.h" />
+    <ClInclude Include="headers\commands\ChallengesCommand.h" />
     <ClInclude Include="headers\commands\BanUserCommand.h" />
     <ClInclude Include="headers\commands\ApproveQuizCommand.h" />
     <ClInclude Include="headers\commands\Command.h" />
@@ -210,6 +223,13 @@
     <ClInclude Include="headers\commands\RemoveQuizCommand.h" />
     <ClInclude Include="headers\services\MessageService.h" />
     <ClInclude Include="headers\commands\PendingQuizzesCommand.h" />
+    <ClInclude Include="headers\commands\ViewProfileCommand.h" />
+    <ClInclude Include="headers\services\UserService.h" />
+    <ClInclude Include="headers\commands\ViewFinishedChallengesCommand.h" />
+    <ClInclude Include="headers\commands\ViewUserCommand.h" />
+    <ClInclude Include="headers\commands\MessagesCommand.h" />
+    <ClInclude Include="headers\commands\ViewQuizzesCommand.h" />
+    <ClInclude Include="headers\commands\ViewUserQuizzesCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

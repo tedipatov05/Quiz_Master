@@ -1,6 +1,7 @@
 #include "../../headers/commands/PendingQuizzesCommand.h"
 
 #include "../../headers/helpers/Validate.h"
+#include "../../headers/services/QuizService.h"
 
 PendingQuizzesCommand::PendingQuizzesCommand(const MyString& buffer, Context& ctx) : Command(buffer, ctx){
 	
@@ -16,6 +17,8 @@ void PendingQuizzesCommand::execute(){
 		std::cout << ex.what() << std::endl;
 		return;
 	}
+
+	QuizService::printPendingQuizzes(ctx);
 
 }
 

@@ -165,6 +165,11 @@ void Quiz::shuffle(Vector<int>& numbers)
 	}
 }
 
+int Quiz::questionsCount() const{
+	return (int)_questionsRepo.size();
+}
+
+
 int Quiz::id() const{
 	return this->quizId;
 }

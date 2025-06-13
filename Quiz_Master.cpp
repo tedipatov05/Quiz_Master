@@ -22,6 +22,7 @@
 #include "headers/Context.h"
 #include "headers/commands/ApproveQuizCommand.h"
 #include "headers/commands/BanUserCommand.h"
+#include "headers/commands/ChallengesCommand.h"
 #include "headers/commands/LoginCommand.h"
 #include "headers/commands/RemoveQuizCommand.h"
 #include "headers/commands/SignUpCommand.h"
@@ -38,14 +39,15 @@ int main()
 	quiz.writeToBinaryFile(ofs);
 
 	ofs.close();
+	*/
 
 	User* admin = new Admin("admin", "adminov", "adminov1", "1234", 101);
-	User* player = new Player("test", "testov", "player1", "1234", 100);
+	User* player = new Player("test", "testov", "player1", "12345", 100);
 	std::ofstream ostream(userFile.data(), std::ios::binary);
 	admin->writeToBinaryFile(ostream);
 	player->writeToBinaryFile(ostream);
 
-	ostream.close();*/
+	ostream.close();
 
 
 	Context* ctx = Context::getInstance();
@@ -58,8 +60,14 @@ int main()
 
 	//ban->execute();
 
+	ChallengesCommand* cmd = new ChallengesCommand("challenges", *ctx);
+
+	cmd->execute();
+
+
 	delete sign_up_command;
 	//delete ban;
+	delete cmd;
 	delete ctx;
 
 

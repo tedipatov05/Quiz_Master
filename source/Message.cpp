@@ -13,6 +13,10 @@ const MyString& Message::content() const{
 	return this->_content;
 }
 
+const MyString& Message::getTime() const{
+	return this->time.getTime();
+}
+
 
 void Message::print(std::ostream& os) const{
 	os << "	  ";

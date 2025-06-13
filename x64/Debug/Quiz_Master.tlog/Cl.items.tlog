@@ -1,3 +1,6 @@
+D:\ФМИ\Quiz_Master\Quiz_Master\source\services\ChallengesService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ChallengesService.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ChallengesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ChallengesCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\PendingQuizzesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\PendingQuizzesCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\BanUserCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\BanUserCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\services\MessageService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\MessageService.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RemoveQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\RemoveQuizCommand.obj
@@ -36,3 +39,5 @@ D:\ФМИ\Quiz_Master\Quiz_Master\source\challenges\UserChallenge.cpp;D:\ФМИ\
 D:\ФМИ\Quiz_Master\Quiz_Master\source\users\UserRepository.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserRepository.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\Validate.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Validate.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewReportsCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewReportsCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewProfileCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewProfileCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\services\UserService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserService.obj

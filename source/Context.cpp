@@ -6,21 +6,32 @@ int Context::nextQuizId = 50;
 Context* Context::instance = nullptr;
 
 
-void Context::seedChallenges(ChallengeType type, int step, int end, int& id){
+void Context::seedChallenges(ChallengeType type, int step, int end, int& id) {
 
-	for (int i = step; i <= end; i+=step){
+	for (int i = step; i <= end; i += step) {
+		MyString str;
+		if (type == ChallengeType::CreatedQuizes) {
+			str = "Create " + toString(i) + " quizzes";
+		}
+		else if (type == ChallengeType::SolvingInNormalMode) {
+			str = "Complete " + toString(i) + " quizzes in normal mode";
+		}
+		else if (type == ChallengeType::SolvingInTestMode) {
+			str = "Complete " + toString(i) + " quizzes in test mode";
+		}
+		
 
-		Challenge challenge(id, i, type);
+		Challenge challenge(id, i, type, str);
 		this->challeges.push_back(challenge);
 		id++;
 	}
 }
 
 
-void Context::readChallenges(const MyString& filename){
+void Context::readChallenges(const MyString& filename) {
 	readFromBinaryFile<Challenge>(filename, this->challeges);
 
-	if (this->challeges.size() == 0){
+	if (this->challeges.size() == 0) {
 		int id = 200;
 
 		seedChallenges(ChallengeType::CreatedQuizes, 5, 30, id);
@@ -29,31 +40,31 @@ void Context::readChallenges(const MyString& filename){
 	}
 }
 
-void Context::readMessages(const MyString& filename){
+void Context::readMessages(const MyString& filename) {
 	readFromBinaryFile<Message>(filename, this->messages);
 }
 
-void Context::readLikedQuizzes(const MyString& filename){
+void Context::readLikedQuizzes(const MyString& filename) {
 	readFromBinaryFile<UserQuiz>(filename, this->likedQuizzes);
 }
 
-void Context::readFavouriteQuizzes(const MyString& filename){
+void Context::readFavouriteQuizzes(const MyString& filename) {
 	readFromBinaryFile<UserQuiz>(filename, this->favouriteQuizzes);
 }
 
-void Context::readQuizzes(const MyString& filename){
+void Context::readQuizzes(const MyString& filename) {
 	readFromBinaryFile<Quiz>(filename, this->quizzes);
 }
 
-void Context::readQuizAttempts(const MyString& filename){
+void Context::readQuizAttempts(const MyString& filename) {
 	readFromBinaryFile<QuizAttempt>(filename, this->quizAttempts);
 }
 
-void Context::readReports(const MyString& filename){
+void Context::readReports(const MyString& filename) {
 	readFromBinaryFile<Report>(filename, this->reports);
 }
 
-void Context::readUserChallenge(const MyString& filename){
+void Context::readUserChallenge(const MyString& filename) {
 	readFromBinaryFile<UserChallenge>(filename, this->userChallenges);
 }
 
@@ -70,16 +81,16 @@ Context::Context() : currentUserType(UserType::None), currentUserId(-1), areUser
 
 }
 
-Context* Context::getInstance(){
-	if (instance == nullptr){
+Context* Context::getInstance() {
+	if (instance == nullptr) {
 		instance = new Context();
 	}
 
 	return instance;
 }
 
-Context::~Context(){
-	if (areUsersChanged){
+Context::~Context() {
+	if (areUsersChanged) {
 		this->users.writeToBinaryFile(userFile);
 	}
 }

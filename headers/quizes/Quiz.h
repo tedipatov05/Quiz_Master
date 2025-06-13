@@ -32,6 +32,7 @@ public:
 	bool active() const;
 	int creator() const;
 	MyString name() const;
+	int questionsCount() const;
 
 
 private:

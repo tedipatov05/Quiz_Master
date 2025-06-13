@@ -13,3 +13,30 @@ void MessageService::sendMessage(Context& ctx, int receiverId, const MyString& m
 
 }
 
+Vector<Message> MessageService::getUserMessages(Context& ctx, const MyString& receiver){
+	Vector<Message> userMessages;
+
+	for (size_t i = 0; i < ctx.messages.size(); i++){
+		if (ctx.messages[i].receiver() == receiver){
+			userMessages.push_back(ctx.messages[i]);
+		}
+	}
+
+	return userMessages;
+}
+
+void MessageService::printMessages(const Vector<Message>& data){
+	if (data.size() == 0){
+		std::cout << NoDataToDisplay << std::endl;
+		return;
+	}
+
+	for (size_t i = 0; i < data.size(); i++){
+		data[i].print(std::cout);
+	}
+
+
+}
+
+
+

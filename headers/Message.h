@@ -14,6 +14,7 @@ public:
 
 	const MyString& receiver() const;
 	const MyString& content() const;
+	const MyString& getTime() const;
 
 	void readFromBinaryFile(std::ifstream& ifs);
 	void writeToBinaryFile(std::ofstream& ofs) const;

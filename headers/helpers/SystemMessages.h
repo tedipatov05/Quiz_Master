@@ -33,7 +33,9 @@ const MyString SuccessfullyRejected = "Successfully rejected!";
 const MyString SuccessfullyApproved = "Successfully approved!";
 const MyString SuccessfullyRemoved = "Successfully removed!";
 const MyString NoQuizzes = "No quizzes to display";
-
+const MyString CreatedQuizzes = "Created quizzes: ";
+const MyString LikedQuizzes = "Liked quizzes: ";
+const MyString FavouriteQuizzes = "Favourite quizzes: ";
 
 //------------------------SYSTEM MESSAGES--------------------------
 const MyString AlreadyLoggedIn = "Could not sign up while you are logged in.";
@@ -48,6 +50,7 @@ const MyString AlreadyLoggedOut = "You are already logged out!";
 const MyString NotAllowed = "You are not allowed to execute this command!";
 const MyString NotLoggedIn = "You are not logged in.";
 const MyString Banned = "You are banned from Admin.";
+const MyString NoDataToDisplay = "No data to display!";
 
 
 
