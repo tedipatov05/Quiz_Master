@@ -131,7 +131,7 @@ MyString toString(int number) {
 	return MyString(buffer);
 }
 
-void createFileIfNotExists(std::ifstream& ifs, const MyString& filename){
+void createFileIfNotExists(std::ifstream& ifs, const MyString& filename) {
 	if (!ifs) {
 		std::ofstream createFile(filename.data());
 		if (!createFile) {
@@ -144,6 +144,34 @@ void createFileIfNotExists(std::ifstream& ifs, const MyString& filename){
 	}
 
 }
+
+QuizMode fromStringToMode(const MyString& str) {
+
+	if (str.toLower() == "test") {
+		return QuizMode::Test;
+	}
+	else if (str.toLower() == "normal"){
+		return QuizMode::Normal;
+	}
+	else{
+		return QuizMode::Unknown;
+	}
+
+}
+
+ChallengeType fromStringToChallengeType(const MyString& str){
+	if (str.toLower() == "test") {
+		return ChallengeType::SolvingInNormalMode;
+	}
+	else if (str.toLower() == "normal") {
+		return ChallengeType::SolvingInNormalMode;
+	}
+	else {
+		return ChallengeType::CreatedQuizes;
+	}
+}
+
+
 
 
 

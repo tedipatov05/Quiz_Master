@@ -58,6 +58,11 @@ void User::increasePoints(int points){
 	this->points += points;
 }
 
+void User::updateLevel(){
+	this - level++;
+}
+
+
 int User::getUserId() const{
 	return this->id;
 }

@@ -127,6 +127,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\ReportQuizCommand.cpp" />
+    <ClCompile Include="source\commands\SaveQuizCommand.cpp" />
     <ClCompile Include="source\commands\RemoveFromFavouriteCommand.cpp" />
     <ClCompile Include="source\commands\AddToFavouriteCommand.cpp" />
     <ClCompile Include="source\commands\LikeQuizCommand.cpp" />
@@ -180,6 +182,7 @@
     <ClCompile Include="source\commands\ViewQuizzesCommand.cpp" />
     <ClCompile Include="source\commands\ViewUserQuizzesCommand.cpp" />
     <ClCompile Include="source\commands\UnlikeQuizCommand.cpp" />
+    <ClCompile Include="source\commands\StartQuizCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\commands\AddToFavouriteCommand.h" />
@@ -238,6 +241,9 @@
     <ClInclude Include="headers\commands\LikeQuizCommand.h" />
     <ClInclude Include="headers\commands\UnlikeQuizCommand.h" />
     <ClInclude Include="headers\commands\RemoveFromFavouriteCommand.h" />
+    <ClInclude Include="headers\commands\StartQuizCommand.h" />
+    <ClInclude Include="headers\commands\SaveQuizCommand.h" />
+    <ClInclude Include="headers\commands\ReportQuizCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

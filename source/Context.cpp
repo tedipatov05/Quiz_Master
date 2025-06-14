@@ -77,7 +77,7 @@ Context::Context() : currentUserType(UserType::None), currentUserId(-1), areUser
 	this->readMessages(messagesFile);
 	this->readReports(reportsFile);
 	this->readUserChallenge(userChallengesFile);
-
+	this->readQuizAttempts(quizAttemptsFile);
 
 }
 

@@ -15,3 +15,4 @@ const MyString likedQuizzesFile = "likedQuizzes.dat";
 const MyString favouriteQuizzesFile = "favouriteQuizzes.dat";
 const MyString reportsFile = "reports.dat";
 const MyString messagesFile = "messages.dat";
+const MyString quizAttemptsFile = "quizAttempts.dat";

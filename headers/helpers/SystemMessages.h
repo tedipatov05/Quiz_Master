@@ -40,6 +40,7 @@ const MyString AlreadyLiked = "This quiz is already liked!";
 const MyString NotLiked = "This quiz is not liked!";
 const MyString AlreadyAddedToFavs = "This quiz is already added to favourite quizzes";
 const MyString NotAddedToFavs = "This quiz is not added to favourite quizzes";
+const MyString NotStartYourOwnQuiz = "You cannot start your own quiz.";
 
 //------------------------SYSTEM MESSAGES--------------------------
 const MyString AlreadyLoggedIn = "Could not sign up while you are logged in.";

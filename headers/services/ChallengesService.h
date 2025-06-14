@@ -10,5 +10,6 @@ public:
 	static Vector<int> getUnfinishedChallenges(const Context& ctx, int userId);
 	static void printUnfinishedChallenges(const Context& ctx, int progressTestMode, int progressNormalMode, int createdQuizzes);
 	static void printFinishedChallenges(const Context& ctx);
+	static void checkChallenge(Context& ctx, User* user, int value, ChallengeType type);
 };
 

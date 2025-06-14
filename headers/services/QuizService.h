@@ -24,6 +24,9 @@ public:
 	static bool isQuizAddedToFavourite(const Context& ctx, const Quiz* quiz);
 	static void removeFromFavourite(Context& ctx, const Quiz* quiz);
 	static UserQuiz* findFavouriteQuiz(Context& ctx, const Quiz* quiz);
+	static void startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bool isShuffle);
+	static void saveQuizInTextFile(const Quiz* quiz, const User* creator,  const MyString& filename);
 
+	static void reportQuiz(Context& ctx, const Quiz* quiz, MyString reason, const MyString& creator, const MyString& reporter);
 };
 

@@ -59,8 +59,6 @@ private:
 
 	void seedChallenges(ChallengeType type, int step, int end, int& id);
 
-	
-
 };
 
 template <typename T>

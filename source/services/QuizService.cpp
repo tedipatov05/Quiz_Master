@@ -202,6 +202,52 @@ void QuizService::removeFromFavourite(Context& ctx, const Quiz* quiz){
 	updateObjectInBinaryFile(likedQuizzesFile, oldFav, *fav);
 }
 
+void QuizService::startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bool isShuffle){
+	if (mode == QuizMode::Unknown){
+		throw std::invalid_argument(InvalidFormat.data());
+	}
+
+	Quiz* quiz = getQuizById(ctx, id);
+
+	if (quiz == nullptr){
+		throw std::invalid_argument(QuizNoExists.data());
+	}
+	if (quiz->creator() == ctx.currentUserId){
+		throw std::invalid_argument(NotStartYourOwnQuiz.data());
+	}
+
+	QuizAttempt attempt = quiz->start(mode, isShuffle, ctx.currentUserId);
+	ctx.quizAttempts.push_back(attempt);
+	writeObjectToBinaryFile(quizAttemptsFile, attempt);
+
+	user->increasePoints(attempt.getPoints());
+	
+}
+
+void QuizService::saveQuizInTextFile(const Quiz* quiz, const User* creator, const MyString& filename){
+
+	std::ofstream ofs(filename.data());
+	if (!ofs.is_open()){
+		throw std::invalid_argument(FileNotOpened.data());
+	}
+
+	quiz->saveInTextFile(ofs, creator);
+}
+
+void QuizService::reportQuiz(Context& ctx, const Quiz* quiz, MyString reason, const MyString& creator, const MyString& reporter){
+
+	Report report(reporter, creator, quiz->id(), reason);
+
+	ctx.reports.push_back(report);
+
+	writeObjectToBinaryFile(reportsFile, report);
+
+	
+}
+
+
+
+
 
 
 

@@ -22,8 +22,8 @@ public:
 	bool banned() const;
 
 	void ban();
-
 	void increasePoints(int points);
+	void updateLevel();
 
 	virtual UserType role() const = 0;
 	virtual User* clone() const = 0;

@@ -1,7 +1,9 @@
 #include "../../headers/commands/CreateQuizCommand.h"
 
 #include "../../headers/helpers/Validate.h"
+#include "../../headers/services/ChallengesService.h"
 #include "../../headers/services/QuizService.h"
+#include "../../headers/services/UserService.h"
 
 CreateQuizCommand::CreateQuizCommand(const MyString& buffer, Context& ctx) : Command(buffer, ctx){
 	
@@ -20,6 +22,8 @@ void CreateQuizCommand::execute(){
 	}
 
 	QuizService::addQuiz(ctx);
+	int createdQuizzes = UserService::getCreatedQuizzesCount(ctx, user->getUserId());
+	ChallengesService::checkChallenge(ctx, user, createdQuizzes, ChallengeType::CreatedQuizes);
 }
 
 
