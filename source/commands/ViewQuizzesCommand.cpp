@@ -12,7 +12,7 @@ void ViewQuizzesCommand::execute(){
 
 	try {
 		Validate::isLoggedIn(ctx);
-		Validate::checkPermission(ctx, UserType::Player);
+		//Validate::checkPermission(ctx, UserType::Player);
 		Validate::isUserNotExists(user);
 	}
 	catch (std::invalid_argument ex) {

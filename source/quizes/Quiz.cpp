@@ -30,6 +30,11 @@ void Quiz::read() {
 		}
 
 		Question* question = QuestionFactory::createQuestion(fromStringToQuestionType(type));
+		if (!question){
+			std::cout << InvalidFormat << std::endl;
+			return;
+		}
+
 		question->read();
 		std::cin.ignore();
 

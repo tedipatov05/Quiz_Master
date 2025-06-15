@@ -139,7 +139,9 @@ int MatchingPairsQuestion::checkAnswer(const MyString& input) const {
 
 	int res = countCorrectAnswers(answers);
 
-	if (res >= this->_correctAnswer.size() / 2 && res < this->_correctAnswer.size()) {
+	int halfCorrectAnswers = this->_correctAnswer.size() % 2 == 0 ? (this->_correctAnswer.size() / 2) : (this->_correctAnswer.size() / 2) + 1;
+
+	if (res >= halfCorrectAnswers && res < this->_correctAnswer.size()) {
 		return this->_points / 2;
 	}
 	else if (res == this->_correctAnswer.size()) {
