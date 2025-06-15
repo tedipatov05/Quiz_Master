@@ -41,6 +41,7 @@ MyString ReportQuizCommand::getReason(const Vector<MyString>& data) {
 
 	for (size_t i = 2; i < data.size(); i++) {
 		reason += data[i];
+		reason += " ";
 	}
 
 	return reason;

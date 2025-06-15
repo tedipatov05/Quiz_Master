@@ -11,5 +11,6 @@ public:
 	static void printUnfinishedChallenges(const Context& ctx, int progressTestMode, int progressNormalMode, int createdQuizzes);
 	static void printFinishedChallenges(const Context& ctx);
 	static void checkChallenge(Context& ctx, User* user, int value, ChallengeType type);
+	static Challenge* getChallengeById(Context& ctx, int challengeId);
 };
 

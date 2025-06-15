@@ -19,6 +19,7 @@ void CreateQuizCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	QuizService::addQuiz(ctx);

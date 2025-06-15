@@ -1,5 +1,5 @@
 #include "../../headers/services/MessageService.h"
-#include "../../headers/commands/Command.h"
+#include "../../headers/helpers/FileHelper.hpp"
 
 void MessageService::sendMessage(Context& ctx, int receiverId, const MyString& messageData){
 

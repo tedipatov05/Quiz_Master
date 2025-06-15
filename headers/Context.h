@@ -58,6 +58,10 @@ private:
 	void readMessages(const MyString& filename);
 
 	void seedChallenges(ChallengeType type, int step, int end, int& id);
+	void seedAdmin();
+
+	void setNextUserId();
+	void setNextQuizId();
 
 };
 

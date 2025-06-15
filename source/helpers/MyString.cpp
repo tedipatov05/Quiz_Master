@@ -427,7 +427,7 @@ std::istream& operator>>(std::istream& is, MyString& str) {
 	is.getline(buffer, BUFFER_SIZE);
 	size_t bufferStringSize = std::strlen(buffer);
 
-	if (bufferStringSize > str.capacity()) {
+	if (bufferStringSize >= str.capacity()) {
 		str.reserve(roundToPowerOfTwo(bufferStringSize + 1));
 	}
 

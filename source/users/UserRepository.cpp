@@ -111,6 +111,10 @@ void UserRepository::readFromBinaryFile(const MyString& filename) {
 		}
 
 		user->readFromBinaryFile(ifs);
+		if (user->getUsername().isEmpty()){
+			continue;
+		}
+
 		this->addUser(user);
 	}
 

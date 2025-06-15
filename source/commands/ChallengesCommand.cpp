@@ -19,6 +19,7 @@ void ChallengesCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	int progressTestMode = UserService::getAttemptsCountInMode(ctx, user->getUserId(), QuizMode::Test);

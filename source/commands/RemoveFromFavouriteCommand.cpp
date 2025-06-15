@@ -24,6 +24,7 @@ void RemoveFromFavouriteCommand::execute(){
 	}
 	catch (std::invalid_argument ex) {
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	if (!QuizService::isQuizAddedToFavourite(ctx, quiz)) {

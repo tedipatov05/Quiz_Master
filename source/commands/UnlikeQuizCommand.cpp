@@ -26,6 +26,7 @@ void UnlikeQuizCommand::execute(){
 	}
 	catch (std::invalid_argument ex) {
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	if (!QuizService::isQuizLiked(ctx, quiz)){

@@ -9,7 +9,7 @@ Vector<MyString> UserService::getCreatedQuizzes(const Context& ctx, int userId) 
 
 	for (size_t i = 0; i < ctx.quizzes.size(); i++) {
 		if (ctx.quizzes[i].creator() == userId) {
-			MyString str = "[" + toString(ctx.quizzes[i].id()) + " ]" + ctx.quizzes[i].name();
+			MyString str = "[" + toString(ctx.quizzes[i].id()) + "] " + ctx.quizzes[i].name();
 			createdQuizzes.push_back(str);
 		}
 	}
@@ -23,7 +23,7 @@ Vector<MyString> UserService::getLikedQuizzes(const Context& ctx, int userId) {
 
 	for (size_t i = 0; i < ctx.likedQuizzes.size(); i++) {
 		if (ctx.likedQuizzes[i].getUserId() == userId && ctx.likedQuizzes[i].isActive()) {
-			MyString str = "[" + toString(ctx.likedQuizzes[i].getQuizId()) + " ]";
+			MyString str = "[" + toString(ctx.likedQuizzes[i].getQuizId()) + "] ";
 			likedQuizzes.push_back(str);
 		}
 	}
@@ -37,7 +37,7 @@ Vector<MyString> UserService::getFavouriteQuizzes(const Context& ctx, int userId
 
 	for (size_t i = 0; i < ctx.favouriteQuizzes.size(); i++) {
 		if (ctx.favouriteQuizzes[i].getUserId() == userId && ctx.favouriteQuizzes[i].isActive()) {
-			MyString str = "[" + toString(ctx.likedQuizzes[i].getQuizId()) + "]";
+			MyString str = "[" + toString(ctx.likedQuizzes[i].getQuizId()) + "] ";
 			favouriteQuizzes.push_back(str);
 		}
 	}
@@ -47,8 +47,11 @@ Vector<MyString> UserService::getFavouriteQuizzes(const Context& ctx, int userId
 
 void UserService::printUserInfo(const User* user) {
 
+	MyString levelInfo = "Level: " + toString(user->getLevel()) + " ";
+	MyString pointsInfo = toString(calculatePointsToNextLevel(user)) + "/" + toString(nextLevelPoints(user->getLevel())) + " points to next level.";
+
 	std::cout << user->getFirstName() << " " << user->getLastName() << " @" << user->getUsername() << std::endl;
-	std::cout << std::setw(20) << "Level: " << user->getLevel() << calculatePointsToNextLevel(user) << "/" << nextLevelPoints(user->getLevel()) << " points to next level." << std::endl;
+	std::cout << std::left << std::setw(20) << levelInfo << pointsInfo << std::endl;
 
 }
 

@@ -17,6 +17,7 @@ void ViewFinishedChallengesCommand::execute(){
 	}
 	catch (std::invalid_argument ex) {
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	ChallengesService::printFinishedChallenges(ctx);

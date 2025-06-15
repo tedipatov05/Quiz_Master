@@ -1,6 +1,7 @@
 #include "../../headers/services/ChallengesService.h"
 
-#include "../../headers/commands/Command.h"
+#include "../../headers/helpers/FileHelper.hpp"
+#include "../../headers/services/MessageService.h"
 #include "../../headers/services/UserService.h"
 
 Vector<int> ChallengesService::getFinishedChallenges(const Context& ctx, int userId) {
@@ -65,11 +66,11 @@ void ChallengesService::printFinishedChallenges(const Context& ctx) {
 
 void ChallengesService::checkChallenge(Context& ctx, User* user, int value, ChallengeType type) {
 	Vector<int> finishedChallenges = getFinishedChallenges(ctx, user->getUserId());
-	UserChallenge* challenge = nullptr;
+	UserChallenge* user_challenge = nullptr;
 
 	for (size_t i = 0; i < ctx.challeges.size(); i++) {
 		if (ctx.challeges[i].count() == value && !finishedChallenges.contains(ctx.challeges[i].id()) && ctx.challeges[i].type() == type) {
-			challenge = new UserChallenge(ctx.challeges[i].id(), user->getUserId(), ctx.challeges[i].getChallenge());
+			user_challenge = new UserChallenge(ctx.challeges[i].id(), user->getUserId(), ctx.challeges[i].getChallenge());
 			user->increasePoints(ctx.challeges[i].calcPoints());
 			ctx.areUsersChanged = true;
 			break;
@@ -82,14 +83,34 @@ void ChallengesService::checkChallenge(Context& ctx, User* user, int value, Chal
 
 	if (pointsToNextLevel >= nexLevelPoints){
 		user->updateLevel();
+		ctx.areUsersChanged = true;
+		MyString content = "Level " + toString(user->getLevel()) + " reached!";
+		MessageService::sendMessage(ctx, user->getUserId(), content);
 	}
 
-	if (challenge != nullptr){
-		
-		ctx.userChallenges.push_back(*challenge);
-		writeObjectToBinaryFile(userChallengesFile, *challenge);
+	if (user_challenge != nullptr){
+		ctx.userChallenges.push_back(*user_challenge);
+		writeObjectToBinaryFile(userChallengesFile, *user_challenge);
+		Challenge* challenge = getChallengeById(ctx, user_challenge->getChallengeId());
+		MyString content = "New challenges completed!" + getMessage(challenge->count(), challenge->calcPoints(), type);
+		MessageService::sendMessage(ctx, user->getUserId(), user_challenge->getMessage());
 	}
 }
+
+Challenge* ChallengesService::getChallengeById(Context& ctx, int challengeId){
+	Challenge* challenge = nullptr;
+
+	for (size_t i = 0; i < ctx.challeges.size(); i++){
+		if (ctx.challeges[i].id() == challengeId){
+			challenge = &ctx.challeges[i];
+			break;
+		}
+		
+	}
+
+	return challenge;
+}
+
 
 
 

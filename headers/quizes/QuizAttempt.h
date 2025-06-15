@@ -1,5 +1,6 @@
 #pragma once
-#include "Quiz.h"
+#include <fstream>
+#include "QuizMode.h"
 
 class QuizAttempt{
 public:

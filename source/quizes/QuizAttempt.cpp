@@ -23,7 +23,7 @@ int QuizAttempt::getUserId() const{
 
 void QuizAttempt::writeToBinaryFile(std::ofstream& ofs) const{
 	ofs.write((const char*)&this->_userId, sizeof(this->_userId));
-	ofs.write((const char*)this->_quizId, sizeof(this->_quizId));
+	ofs.write((const char*)&this->_quizId, sizeof(this->_quizId));
 	ofs.write((const char*)&this->mode, sizeof(this->mode));
 	ofs.write((const char*)&this->points, sizeof(this->points));
 }

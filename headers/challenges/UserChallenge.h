@@ -12,7 +12,7 @@ public:
 	int getUserId() const;
 
 	const MyString& getMessage() const;
-	const MyString& getTime() const;
+	const MyString getTime() const;
 
 	void writeToBinaryFile(std::ofstream& ofs) const;
 	void readFromBinaryFile(std::ifstream& ifs) ;

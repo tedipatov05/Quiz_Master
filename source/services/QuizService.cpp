@@ -1,6 +1,6 @@
 #include "../../headers/services/QuizService.h"
 #include "../../headers/Context.h"
-#include "../../headers/commands/Command.h"
+#include "../../headers/helpers/FileHelper.hpp"
 
 Quiz* QuizService::getQuizById(Context& ctx, int id) {
 
@@ -23,7 +23,7 @@ void QuizService::printPendingQuizzes(const Context& ctx) {
 		if (ctx.quizzes[i].active() && !ctx.quizzes[i].approved()) {
 			User* user = ctx.users.findUser(ctx.quizzes[i].creator());
 
-			std::cout << "[" << ctx.quizzes[i].id() << "] " << ctx.quizzes[i].name() << " by " << user->getUsername();
+			std::cout << "[" << ctx.quizzes[i].id() << "] " << ctx.quizzes[i].name() << " by " << user->getUsername() << std::endl;
 		}
 	}
 }
@@ -50,7 +50,7 @@ void QuizService::printUserQuizzes(const Vector<MyString>& data, const MyString&
 			std::cout << std::endl;
 		}
 	}
-
+	std::cout << std::endl;
 }
 
 void QuizService::addQuiz(Context& ctx) {
@@ -92,8 +92,11 @@ MyString QuizService::getQuizCreatorName(const Context& ctx, const Quiz& quiz) {
 void QuizService::printQuizzesInfo(const Context& ctx, const Vector<Quiz>& quizzes) {
 
 	for (size_t i = 0; i < quizzes.size(); i++) {
-		std::cout << quizzes[i].id() << " | " << quizzes[i].name() << " | " << getQuizCreatorName(ctx, quizzes[i])
-			<< " | " << quizzes[i].questionsCount() << " Questions | " << getQuizLikes(ctx, quizzes[i].id()) << " Likes" << std::endl;
+		if (quizzes[i].approved()){
+			std::cout << "    ";
+			std::cout << quizzes[i].id() << " | " << quizzes[i].name() << " | " << getQuizCreatorName(ctx, quizzes[i])
+				<< " | " << quizzes[i].questionsCount() << " Questions | " << getQuizLikes(ctx, quizzes[i].id()) << " Likes" << std::endl;
+		}
 	}
 }
 
@@ -221,6 +224,7 @@ void QuizService::startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bo
 	writeObjectToBinaryFile(quizAttemptsFile, attempt);
 
 	user->increasePoints(attempt.getPoints());
+	ctx.areUsersChanged = true;
 	
 }
 

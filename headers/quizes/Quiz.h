@@ -1,16 +1,8 @@
 #pragma once
-#include "../helpers/Vector.hpp"
 #include "../questions/QuestionsRepository.h"
 #include "../users/User.h"
-
-
-class QuizAttempt;
-
-enum class QuizMode{
-	Test,
-	Normal,
-	Unknown
-};
+#include "QuizMode.h"
+#include "QuizAttempt.h"
 
 class Quiz{
 public:
@@ -48,7 +40,8 @@ private:
 
 
 	void writeCenteredRow(std::ostream& ofs, const MyString& line) const;
-	void shuffle(Vector<int>& numbers);
+
+	
 };
 
 

@@ -23,3 +23,5 @@ private:
 	bool _isActive;
 };
 
+bool operator==(const UserQuiz& lhs, const UserQuiz& rhs);
+

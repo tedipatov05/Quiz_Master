@@ -29,10 +29,15 @@ void UserQuiz::writeToBinaryFile(std::ofstream& ofs) const{
 }
 
 void UserQuiz::readFromBinaryFile(std::ifstream& ifs) const{
-	ifs.read((char*)this->_userId, sizeof(this->_userId));
+	ifs.read((char*)&this->_userId, sizeof(this->_userId));
 	ifs.read((char*)&this->_quizId, sizeof(this->_quizId));
 	ifs.read((char*)&this->_isActive, sizeof(this->_isActive));
 }
+
+bool operator==(const UserQuiz& lhs, const UserQuiz& rhs){
+	return lhs.getQuizId() == rhs.getQuizId() && lhs.getUserId() == rhs.getUserId() && lhs.isActive() && rhs.isActive();
+}
+
 
 
 

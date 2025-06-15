@@ -34,6 +34,7 @@ void SaveQuizCommand::execute() {
 		return;
 	}
 
+	std::cout << SuccessfullySaveInTextFile << std::endl;
 
 
 }

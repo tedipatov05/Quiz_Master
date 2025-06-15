@@ -38,6 +38,8 @@ void StartQuizCommand::execute() {
 		return;
 	}
 
+	
+
 	int attempts = UserService::getAttemptsCountInMode(ctx, user->getUserId(), fromStringToMode(data[2]));
 	ChallengesService::checkChallenge(ctx, user, attempts, fromStringToChallengeType(data[2]));
 

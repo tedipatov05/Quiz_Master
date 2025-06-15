@@ -26,6 +26,7 @@ void RemoveQuizCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	Quiz old(*quiz);
@@ -33,7 +34,7 @@ void RemoveQuizCommand::execute(){
 
 	updateObjectInBinaryFile(quizzesFile, old, *quiz);
 
-	MyString reason = getReasonFromBuffer(data);
+	MyString reason = "Your quiz has been removed! " +  getReasonFromBuffer(data);
 
 	MessageService::sendMessage(ctx, quiz->creator(), reason);
 

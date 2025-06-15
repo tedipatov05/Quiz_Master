@@ -26,6 +26,7 @@ void ViewUserQuizzesCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	Vector<Quiz> quizzes = UserService::getUserQuizzes(ctx, user->getUserId());

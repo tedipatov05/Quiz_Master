@@ -1,3 +1,12 @@
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\CommandFactory.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\CommandFactory.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ReportQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ReportQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\SaveQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\SaveQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RemoveFromFavouriteCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\RemoveFromFavouriteCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\AddToFavouriteCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\AddToFavouriteCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\LikeQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\LikeQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\CreateQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\CreateQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\MessagesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\MessagesCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\Shuffle.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\Shuffle.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\services\ChallengesService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ChallengesService.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ChallengesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ChallengesCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\PendingQuizzesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\PendingQuizzesCommand.obj
@@ -41,3 +50,9 @@ D:\ФМИ\Quiz_Master\Quiz_Master\source\helpers\Validate.cpp;D:\ФМИ\Quiz_Mas
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewReportsCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewReportsCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewProfileCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewProfileCommand.obj
 D:\ФМИ\Quiz_Master\Quiz_Master\source\services\UserService.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UserService.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewFinishedChallengesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewFinishedChallengesCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewUserCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewUserCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewQuizzesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewQuizzesCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ViewUserQuizzesCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\ViewUserQuizzesCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\UnlikeQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\UnlikeQuizCommand.obj
+D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\StartQuizCommand.cpp;D:\ФМИ\Quiz_Master\Quiz_Master\x64\Debug\StartQuizCommand.obj

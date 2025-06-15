@@ -2,11 +2,12 @@
 #include <iomanip>
 #include "../../headers/helpers/Utils.h"
 #include <iostream>
-
+#include "../../headers/helpers/Vector.hpp"
+#include "../../headers/helpers/Shuffle.h"
 #include "../../headers/helpers/SystemMessages.h"
 #include "../../headers/quizes/QuizAttempt.h"
 
-Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true) {
+Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true), maxPoints(0) {
 
 }
 
@@ -66,7 +67,7 @@ void Quiz::saveInTextFile(std::ofstream& ofs, const User* creator) const {
 	for (size_t i = 0; i < _questionsRepo.size(); i++) {
 		ofs << (i + 1) << ") ";
 		_questionsRepo[i].print(ofs);
-
+		ofs << std::endl;
 		ofs << std::endl;
 	}
 
@@ -120,7 +121,7 @@ QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 
 	int result = 0;
 	Vector<int> nums = Vector<int>();
-	for (size_t i = 0; i < this->_questionsRepo.size(); i++) {
+	for (int i = 0; i < this->_questionsRepo.size(); i++) {
 		nums.push_back(i);
 	}
 
@@ -136,6 +137,8 @@ QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 		if (mode == QuizMode::Test) {
 			this->_questionsRepo[nums[i]].printCorrectAnswer(std::cout);
 		}
+
+		std::cout << std::endl;
 	}
 
 	std::cout << "Your quiz score is " << result << "/" << this->maxPoints << std::endl;
@@ -156,14 +159,6 @@ void Quiz::writeCenteredRow(std::ostream& ofs, const MyString& line) const {
 
 }
 
-void Quiz::shuffle(Vector<int>& numbers)
-{
-	int n = numbers.size();
-	for (int i = n - 1; i > 0; --i) {
-		int j = rand() % (i + 1);  
-		std::swap(numbers[i], numbers[j]);
-	}
-}
 
 int Quiz::questionsCount() const{
 	return (int)_questionsRepo.size();

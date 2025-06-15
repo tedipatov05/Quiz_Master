@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\CommandFactory.cpp" />
     <ClCompile Include="source\commands\ReportQuizCommand.cpp" />
     <ClCompile Include="source\commands\SaveQuizCommand.cpp" />
     <ClCompile Include="source\commands\RemoveFromFavouriteCommand.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include="source\commands\LikeQuizCommand.cpp" />
     <ClCompile Include="source\commands\CreateQuizCommand.cpp" />
     <ClCompile Include="source\commands\MessagesCommand.cpp" />
+    <ClCompile Include="source\helpers\Shuffle.cpp" />
     <ClCompile Include="source\services\ChallengesService.cpp" />
     <ClCompile Include="source\commands\ChallengesCommand.cpp" />
     <ClCompile Include="source\commands\PendingQuizzesCommand.cpp" />
@@ -185,8 +187,12 @@
     <ClCompile Include="source\commands\StartQuizCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="headers\commands\CommandFactory.h" />
     <ClInclude Include="headers\commands\AddToFavouriteCommand.h" />
     <ClInclude Include="headers\commands\CreateQuizCommand.h" />
+    <ClInclude Include="headers\helpers\FileHelper.hpp" />
+    <ClInclude Include="headers\helpers\Shuffle.h" />
+    <ClInclude Include="headers\quizes\QuizMode.h" />
     <ClInclude Include="headers\services\ChallengesService.h" />
     <ClInclude Include="headers\commands\ChallengesCommand.h" />
     <ClInclude Include="headers\commands\BanUserCommand.h" />

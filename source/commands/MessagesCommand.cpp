@@ -20,6 +20,7 @@ void MessagesCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
 	Vector<Message> userMessages = MessageService::getUserMessages(ctx, user->getUsername());

@@ -1,5 +1,8 @@
 #include "../headers/Context.h"
 
+#include "../headers/helpers/FIleHelper.hpp"
+#include "../headers/users/Admin.h"
+
 
 int Context::nextUserId = 100;
 int Context::nextQuizId = 50;
@@ -27,6 +30,14 @@ void Context::seedChallenges(ChallengeType type, int step, int end, int& id) {
 	}
 }
 
+void Context::seedAdmin(){
+	User* user = new Admin("Teodor", "Patov", "patlaka", "111111", 1);
+	this->users.addUser(user);
+	this->areUsersChanged = true;
+	delete user;
+}
+
+
 
 void Context::readChallenges(const MyString& filename) {
 	readFromBinaryFile<Challenge>(filename, this->challeges);
@@ -37,6 +48,10 @@ void Context::readChallenges(const MyString& filename) {
 		seedChallenges(ChallengeType::CreatedQuizes, 5, 30, id);
 		seedChallenges(ChallengeType::SolvingInNormalMode, 10, 100, id);
 		seedChallenges(ChallengeType::SolvingInTestMode, 10, 100, id);
+
+		for (size_t i = 0; i < this->challeges.size(); i++){
+			writeObjectToBinaryFile<Challenge>(filename, this->challeges[i]);
+		}
 	}
 }
 
@@ -70,6 +85,10 @@ void Context::readUserChallenge(const MyString& filename) {
 
 Context::Context() : currentUserType(UserType::None), currentUserId(-1), areUsersChanged(false) {
 	this->users.readFromBinaryFile(userFile);
+	if (this->users.size() == 0){
+		seedAdmin();
+	}
+
 	this->readQuizzes(quizzesFile);
 	this->readChallenges(challengesFile);
 	this->readFavouriteQuizzes(favouriteQuizzesFile);
@@ -79,7 +98,31 @@ Context::Context() : currentUserType(UserType::None), currentUserId(-1), areUser
 	this->readUserChallenge(userChallengesFile);
 	this->readQuizAttempts(quizAttemptsFile);
 
+	setNextUserId();
+	setNextQuizId();
 }
+
+void Context::setNextUserId() {
+	int maxId = 0;
+	for (int i = 0; i < this->users.size(); i++) {
+		int userId = this->users[i].getUserId();
+		maxId = std::max(maxId, userId);
+	}
+
+	Context::nextUserId = maxId + 1;
+}
+
+void Context::setNextQuizId(){
+	int maxQuizId = 0;
+	for (int i = 0; i < this->quizzes.size(); i++) {
+		int quizId = this->quizzes[i].id();
+		maxQuizId = std::max(maxQuizId, quizId);
+	}
+
+	Context::nextQuizId = maxQuizId + 1;
+}
+
+
 
 Context* Context::getInstance() {
 	if (instance == nullptr) {
@@ -91,7 +134,6 @@ Context* Context::getInstance() {
 
 Context::~Context() {
 	if (areUsersChanged) {
-		this->users.writeToBinaryFile(userFile);
 	}
 }
 

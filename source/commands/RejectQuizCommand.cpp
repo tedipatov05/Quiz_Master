@@ -45,6 +45,7 @@ MyString RejectQuizCommand::getReasonFromBuffer(const Vector<MyString>& data) co
 
 	for (size_t i = 2; i < data.size(); i++){
 		reason += data[i];
+		reason += " ";
 	}
 
 

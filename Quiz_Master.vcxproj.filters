@@ -189,6 +189,12 @@
     <ClCompile Include="source\commands\ReportQuizCommand.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\commands\CommandFactory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\helpers\Shuffle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="headers\helpers\Constants.h">
@@ -366,6 +372,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="headers\commands\ReportQuizCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\commands\CommandFactory.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\helpers\FileHelper.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\quizes\QuizMode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="headers\helpers\Shuffle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

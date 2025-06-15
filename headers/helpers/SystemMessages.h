@@ -56,6 +56,7 @@ const MyString NotAllowed = "You are not allowed to execute this command!";
 const MyString NotLoggedIn = "You are not logged in.";
 const MyString Banned = "You are banned from Admin.";
 const MyString NoDataToDisplay = "No data to display!";
+const MyString SuccessfullySaveInTextFile = "Successfully saved quiz in text file! Ready for the test :)";
 
 
 

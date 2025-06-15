@@ -20,7 +20,7 @@ const MyString& Message::getTime() const{
 
 void Message::print(std::ostream& os) const{
 	os << "	  ";
-	os << this->_content;
+	os << this->_content << std::endl;
 }
 
 void Message::writeToBinaryFile(std::ofstream& ofs) const{

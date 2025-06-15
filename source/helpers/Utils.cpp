@@ -172,6 +172,26 @@ ChallengeType fromStringToChallengeType(const MyString& str){
 }
 
 
+MyString getMessage(int count, int points, ChallengeType type){
+	
+
+	if (type == ChallengeType::CreatedQuizes){
+		return "You created " + toString(count) + " quizzes. " + toString(points) + " points added";
+	}
+	else if (type == ChallengeType::SolvingInNormalMode){
+		return "You solved " + toString(count) + " quizzes in normal mode! " + toString(points) + " points added";
+	}
+	else if (type == ChallengeType::SolvingInTestMode){
+		return "You solved " + toString(count) + " quizzes in test mode! " + toString(points) + " points added";
+	}
+
+
+	return "";
+	
+}
+
+
+
 
 
 

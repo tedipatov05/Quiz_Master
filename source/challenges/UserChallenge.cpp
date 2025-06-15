@@ -17,7 +17,7 @@ const MyString& UserChallenge::getMessage() const{
 	return this->message;
 }
 
-const MyString& UserChallenge::getTime() const{
+const MyString UserChallenge::getTime() const{
 	return this->time.getTime();
 }
 

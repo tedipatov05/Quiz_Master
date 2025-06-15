@@ -42,6 +42,8 @@ void SingleChoiceQuestion::print(std::ostream& os) const {
 		ch++;
 	}
 
+	os << InputCorrectAnswer;
+
 }
 
 void SingleChoiceQuestion::printCorrectAnswer(std::ostream& os) const {

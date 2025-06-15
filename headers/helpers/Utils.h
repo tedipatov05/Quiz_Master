@@ -15,3 +15,6 @@ MyString toString(int number);
 void createFileIfNotExists(std::ifstream& ifs, const MyString& filename);
 QuizMode fromStringToMode(const MyString& str);
 ChallengeType fromStringToChallengeType(const MyString& str);
+
+MyString getMessage(int count, int points, ChallengeType type);
+

@@ -24,9 +24,10 @@ void ViewUserCommand::execute(){
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;
+		return;
 	}
 
-	UserService::printUserInfo(user);
+	//UserService::printUserInfo(user);
 	Vector<MyString> userCreatedQuizzes = UserService::getCreatedQuizzes(ctx, user->getUserId());
 	Vector<MyString> userLikedQuizzes = UserService::getLikedQuizzes(ctx, user->getUserId());
 	Vector<MyString> userFavouriteQuizzes = UserService::getFavouriteQuizzes(ctx, user->getUserId());

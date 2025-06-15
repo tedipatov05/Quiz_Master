@@ -23,6 +23,7 @@
 #include "headers/commands/ApproveQuizCommand.h"
 #include "headers/commands/BanUserCommand.h"
 #include "headers/commands/ChallengesCommand.h"
+#include "headers/commands/CommandFactory.h"
 #include "headers/commands/LoginCommand.h"
 #include "headers/commands/RemoveQuizCommand.h"
 #include "headers/commands/SignUpCommand.h"
@@ -41,34 +42,66 @@ int main()
 	ofs.close();
 	*/
 
-	User* admin = new Admin("admin", "adminov", "adminov1", "1234", 101);
-	User* player = new Player("test", "testov", "player1", "12345", 100);
-	std::ofstream ostream(userFile.data(), std::ios::binary);
-	admin->writeToBinaryFile(ostream);
-	player->writeToBinaryFile(ostream);
+	//User* admin = new Admin("admin", "adminov", "adminov1", "1234", 101);
+	//User* player = new Player("test", "testov", "player1", "12345", 100);
+	//std::ofstream ostream(userFile.data(), std::ios::binary);
+	//admin->writeToBinaryFile(ostream);
+	//player->writeToBinaryFile(ostream);
 
-	ostream.close();
-
-
-	Context* ctx = Context::getInstance();
-
-	LoginCommand* sign_up_command = new LoginCommand("login player1 12345", *ctx);
-
-	sign_up_command->execute();
-
-	//BanUserCommand* ban = new BanUserCommand("ban player1", *ctx);
-
-	//ban->execute();
-
-	ChallengesCommand* cmd = new ChallengesCommand("challenges", *ctx);
-
-	cmd->execute();
+	//ostream.close();
 
 
-	delete sign_up_command;
-	//delete ban;
-	delete cmd;
-	delete ctx;
+	//Context* ctx = Context::getInstance();
 
+	//LoginCommand* sign_up_command = new LoginCommand("login player1 12345", *ctx);
+
+	//sign_up_command->execute();
+
+	////BanUserCommand* ban = new BanUserCommand("ban player1", *ctx);
+
+	////ban->execute();
+
+	//ChallengesCommand* cmd = new ChallengesCommand("challenges", *ctx);
+
+	//cmd->execute();
+
+
+	//delete sign_up_command;
+	////delete ban;
+	//delete cmd;
+	//delete ctx;
+
+	std::cout << "Welcome to my Quiz Master App." << std::endl;
+
+	Context* context = Context::getInstance();
+
+	while (true) {
+		std::cout << "> ";
+		
+		MyString command;
+		std::cin >> command;
+
+		if (command.isEmpty()) {
+			std::cout << "Thank you for using my Quiz Master App! " << std::endl;
+			delete context;
+			break;
+		}
+
+		Command* cmd = CommandFactory::generateCommand(command, *context);
+
+		if (cmd) {
+			cmd->execute();
+			delete cmd;
+		}
+
+	}
+
+
+	
+
+	//delete context;
+
+
+	
 
 }
