@@ -59,7 +59,7 @@ void User::increasePoints(int points){
 }
 
 void User::updateLevel(){
-	this - level++;
+	this->level++;
 }
 
 

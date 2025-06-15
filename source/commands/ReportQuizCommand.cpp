@@ -10,8 +10,9 @@ ReportQuizCommand::ReportQuizCommand(const MyString& buffer, Context& ctx) : Com
 void ReportQuizCommand::execute() {
 
 	Vector<MyString> data = split(buffer, " ");
-	if (data.size() < 3) {
+	if (data.size() < 3 || !isNumber(data[1])) {
 		std::cout << InvalidFormat << std::endl;
+		return;
 	}
 
 	User* user = ctx.users.findUser(ctx.currentUserId);

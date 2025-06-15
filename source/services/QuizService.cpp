@@ -1,6 +1,7 @@
 #include "../../headers/services/QuizService.h"
 #include "../../headers/Context.h"
 #include "../../headers/helpers/FileHelper.hpp"
+#include "../../headers/services/MessageService.h"
 
 Quiz* QuizService::getQuizById(Context& ctx, int id) {
 
@@ -15,16 +16,18 @@ Quiz* QuizService::getQuizById(Context& ctx, int id) {
 
 void QuizService::printPendingQuizzes(const Context& ctx) {
 
-	if (ctx.quizzes.size() == 0) {
-		std::cout << NoQuizzes << std::endl;
-	}
-
+	bool empty = true;
 	for (size_t i = 0; i < ctx.quizzes.size(); i++) {
 		if (ctx.quizzes[i].active() && !ctx.quizzes[i].approved()) {
+			empty = false;
 			User* user = ctx.users.findUser(ctx.quizzes[i].creator());
 			std::cout << "   ";
 			std::cout << "[id " << ctx.quizzes[i].id() << "] " << ctx.quizzes[i].name() << " by " << user->getUsername() << std::endl;
 		}
+	}
+
+	if (empty){
+		std::cout << NoDataToDisplay << std::endl;
 	}
 }
 
@@ -205,11 +208,11 @@ bool QuizService::isQuizAddedToFavourite(const Context& ctx, const Quiz* quiz){
 }
 
 void QuizService::removeFromFavourite(Context& ctx, const Quiz* quiz){
-	UserQuiz* fav = findLike(ctx, quiz);
+	UserQuiz* fav = findFavouriteQuiz(ctx, quiz);
 
 	UserQuiz oldFav(*fav);
 	fav->changeActive();
-	updateObjectInBinaryFile(likedQuizzesFile, oldFav, *fav);
+	updateObjectInBinaryFile(favouriteQuizzesFile, oldFav, *fav);
 }
 
 void QuizService::startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bool isShuffle){
@@ -225,6 +228,7 @@ void QuizService::startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bo
 	if (quiz->creator() == ctx.currentUserId){
 		throw std::invalid_argument(NotStartYourOwnQuiz.data());
 	}
+
 
 	QuizAttempt attempt = quiz->start(mode, isShuffle, ctx.currentUserId);
 	ctx.quizAttempts.push_back(attempt);
@@ -257,6 +261,14 @@ void QuizService::reportQuiz(Context& ctx, const Quiz* quiz, MyString reason, co
 }
 
 
+void QuizService::rejectQuiz(Context& ctx, Quiz* quiz, const MyString& reason){
+
+	Quiz oldQuiz(*quiz);
+	quiz->reject();
+	updateObjectInBinaryFile(quizzesFile, oldQuiz, *quiz);
+	//MyString reason = getReasonFromBuffer(data);
+	MessageService::sendMessage(ctx, quiz->creator(), reason);
+}
 
 
 

@@ -10,6 +10,7 @@ SignUpCommand::SignUpCommand(const MyString& buffer, Context& ctx) : Command(buf
 void SignUpCommand::execute(){
 	if (ctx.currentUserId != -1){
 		std::cout << AlreadyLoggedIn << std::endl;
+		return;
 	}
 
 	Vector<MyString> data = split(buffer, " ");

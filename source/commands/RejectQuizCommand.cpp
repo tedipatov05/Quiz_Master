@@ -11,8 +11,9 @@ RejectQuizCommand::RejectQuizCommand(const MyString& buffer, Context& ctx) : Com
 void RejectQuizCommand::execute(){
 
 	Vector<MyString> data = split(buffer, " ");
-	if (data.size() < 3){
+	if (data.size() < 3 || !isNumber(data[1])){
 		std::cout << InvalidFormat << std::endl;
+		return;
 	}
 
 	Quiz* quiz = QuizService::getQuizById(ctx, toInt(data[1]));
@@ -26,15 +27,7 @@ void RejectQuizCommand::execute(){
 		return;
 	}
 
-	Quiz oldQuiz(*quiz);
-
-	quiz->reject();
-
-	updateObjectInBinaryFile(quizzesFile, oldQuiz, *quiz);
-
-	MyString reason = getReasonFromBuffer(data);
-
-	MessageService::sendMessage(ctx, quiz->creator(), reason);
+	QuizService::rejectQuiz(ctx, quiz, getReasonFromBuffer(data));
 
 	std::cout << SuccessfullyRejected << std::endl;
 }

@@ -16,7 +16,7 @@ void ApproveQuizCommand::execute() {
 
 	Vector<MyString> data = split(buffer, " ");
 
-	if (data.size() != 2) {
+	if (data.size() != 2 || !isNumber(data[1])) {
 		std::cout << InvalidFormat << std::endl;
 		return;
 	}

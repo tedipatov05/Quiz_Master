@@ -27,6 +27,10 @@ public:
 	static void startQuiz(Context& ctx, User* user,  int id, QuizMode mode, bool isShuffle);
 	static void saveQuizInTextFile(const Quiz* quiz, const User* creator,  const MyString& filename);
 
+	static void rejectQuiz(Context& ctx, Quiz* quiz, const MyString& reason);
+
 	static void reportQuiz(Context& ctx, const Quiz* quiz, MyString reason, const MyString& creator, const MyString& reporter);
+
+	//static QuizAttempt* isTriedAlready()
 };
 

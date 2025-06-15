@@ -81,7 +81,7 @@ int main()
 		MyString command;
 		std::cin >> command;
 
-		if (command.isEmpty()) {
+		if (command.isEmpty() || command.toLower() == "quit") {
 			std::cout << "Thank you for using my Quiz Master App! " << std::endl;
 			delete context;
 			break;

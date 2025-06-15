@@ -93,7 +93,7 @@ void ChallengesService::checkChallenge(Context& ctx, User* user, int value, Chal
 		writeObjectToBinaryFile(userChallengesFile, *user_challenge);
 		Challenge* challenge = getChallengeById(ctx, user_challenge->getChallengeId());
 		MyString content = "New challenges completed!" + getMessage(challenge->count(), challenge->calcPoints(), type);
-		MessageService::sendMessage(ctx, user->getUserId(), user_challenge->getMessage());
+		MessageService::sendMessage(ctx, user->getUserId(), content);
 	}
 }
 

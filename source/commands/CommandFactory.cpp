@@ -1,9 +1,11 @@
 #include "../../headers/commands/CommandFactory.h"
-
+#include "../../headers/helpers/Validate.h"
 #include "../../headers/commands/HelpCommand.h"
 
 
-Command* CommandFactory::generateCommand(const MyString& buffer, Context& ctx) {
+Command* CommandFactory::generateCommand(MyString& buffer, Context& ctx) {
+	Validate::removeUnnecessarySpaces(buffer);
+
 	Vector<MyString> data = Command::split(buffer, " ");
 	MyString cmd = data[0].toLower();
 

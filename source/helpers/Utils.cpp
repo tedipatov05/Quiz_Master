@@ -39,8 +39,6 @@ bool stringCmp(const char* str1, const char* str2, size_t size) {
 	return true;
 }
 
-
-
 int toInt(const MyString& str) {
 	int result = 0;
 	for (size_t i = 0; i < str.size(); i++) {
@@ -48,6 +46,7 @@ int toInt(const MyString& str) {
 	}
 	return result;
 }
+
 
 double toDouble(const MyString& str) {
 	double result = 0.0;
@@ -189,6 +188,21 @@ MyString getMessage(int count, int points, ChallengeType type){
 	return "";
 	
 }
+
+bool isNumber(const MyString& str){
+	if (str.isEmpty()){
+		return false;
+	}
+
+	for (size_t i =0; i < str.size(); i++){
+		if (str[i] < 48 || str[i] > 57){
+			return false;
+		}
+	}
+
+	return true;
+}
+
 
 
 

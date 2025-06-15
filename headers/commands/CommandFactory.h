@@ -31,6 +31,6 @@ class CommandFactory{
 
 public:
 
-	static Command* generateCommand(const MyString& buffer, Context& ctx);
+	static Command* generateCommand(MyString& buffer, Context& ctx);
 };
 
