@@ -12,7 +12,7 @@ void ViewReportsCommand::execute(){
 	try{
 		Validate::checkPermission(ctx, UserType::Admin);
 	}
-	catch (std::invalid_argument ex){
+	catch (std::invalid_argument& ex){
 		std::cout << ex.what() << std::endl;
 		return;
 	}

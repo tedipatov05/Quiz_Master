@@ -28,7 +28,7 @@ void ApproveQuizCommand::execute() {
 		Validate::isAlreadyApproved(quiz);
 		Validate::isAlreadyDeleted(quiz);
 	}
-	catch (std::invalid_argument ex){
+	catch (std::invalid_argument& ex){
 		std::cout << ex.what() << std::endl;
 		return;
 	}

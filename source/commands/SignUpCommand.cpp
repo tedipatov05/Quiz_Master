@@ -24,7 +24,7 @@ void SignUpCommand::execute(){
 		Validate::areEqual(data[4], data[5], InvalidPassword);
 		Validate::isUserAlreadyExists(data[3], ctx);
 	}
-	catch (std::invalid_argument ex){
+	catch (std::invalid_argument& ex){
 		std::cout << ex.what() << std::endl;
 		return;
 	}

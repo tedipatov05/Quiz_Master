@@ -1,2 +1,62 @@
-﻿  ViewQuizzesCommand.cpp
+﻿  AddToFavouriteCommand.cpp
+  ApproveQuizCommand.cpp
+D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(37,16): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  BanUserCommand.cpp
+  (compiling source file 'source/commands/ApproveQuizCommand.cpp')
+      D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(37,16):
+      the template instantiation context (the oldest one first) is
+          D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\ApproveQuizCommand.cpp(40,2):
+          see reference to function template instantiation 'void updateObjectInBinaryFile<Quiz>(const MyString &,const T &,const T &)' being compiled
+          with
+          [
+              T=Quiz
+          ]
+          D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(56,17):
+          see reference to function template instantiation 'int findPositionInFile<Quiz>(const MyString &,const T &)' being compiled
+          with
+          [
+              T=Quiz
+          ]
+  
+  ChallengesCommand.cpp
+  CreateQuizCommand.cpp
+  HelpCommand.cpp
+  LikeQuizCommand.cpp
+  LoginCommand.cpp
+  MessagesCommand.cpp
+  PendingQuizzesCommand.cpp
+  RejectQuizCommand.cpp
+  RemoveFromFavouriteCommand.cpp
+  RemoveQuizCommand.cpp
+D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(37,16): warning C4244: 'initializing': conversion from 'std::streamoff' to 'int', possible loss of data
+  (compiling source file 'source/commands/RemoveQuizCommand.cpp')
+      D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(37,16):
+      the template instantiation context (the oldest one first) is
+          D:\ФМИ\Quiz_Master\Quiz_Master\source\commands\RemoveQuizCommand.cpp(35,2):
+          see reference to function template instantiation 'void updateObjectInBinaryFile<Quiz>(const MyString &,const T &,const T &)' being compiled
+          with
+          [
+              T=Quiz
+          ]
+          D:\ФМИ\Quiz_Master\Quiz_Master\headers\helpers\FIleHelper.hpp(56,17):
+          see reference to function template instantiation 'int findPositionInFile<Quiz>(const MyString &,const T &)' being compiled
+          with
+          [
+              T=Quiz
+          ]
+  
+  ReportQuizCommand.cpp
+  SaveQuizCommand.cpp
+  SignUpCommand.cpp
+  StartQuizCommand.cpp
+  UnlikeQuizCommand.cpp
+  ViewFinishedChallengesCommand.cpp
+  ViewProfileCommand.cpp
+  Generating Code...
+  Compiling...
+  ViewQuizzesCommand.cpp
+  ViewReportsCommand.cpp
+  ViewUserCommand.cpp
+  ViewUserQuizzesCommand.cpp
+  Generating Code...
   Quiz_Master.vcxproj -> D:\ФМИ\Quiz_Master\x64\Debug\Quiz_Master.exe

@@ -29,7 +29,7 @@ void SaveQuizCommand::execute() {
 		Validate::isQuizExists(quiz);
 		QuizService::saveQuizInTextFile(quiz, creator, data[2]);
 	}
-	catch (std::invalid_argument ex) {
+	catch (std::invalid_argument& ex) {
 		std::cout << ex.what() << std::endl;
 		return;
 	}

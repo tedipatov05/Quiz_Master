@@ -23,7 +23,7 @@ void RemoveFromFavouriteCommand::execute(){
 		Validate::isApproved(quiz);
 
 	}
-	catch (std::invalid_argument ex) {
+	catch (std::invalid_argument& ex) {
 		std::cout << ex.what() << std::endl;
 		return;
 	}

@@ -34,7 +34,7 @@ void StartQuizCommand::execute() {
 		QuizService::startQuiz(ctx, user, toInt(data[1]), fromStringToMode(data[2]), isShuffle);
 
 	}
-	catch (std::invalid_argument ex) {
+	catch (std::invalid_argument& ex) {
 		std::cout << ex.what() << std::endl;
 		return;
 	}
