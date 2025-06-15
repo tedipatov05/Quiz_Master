@@ -21,6 +21,7 @@ void AddToFavouriteCommand::execute(){
 		Validate::isLoggedIn(ctx);
 		Validate::checkPermission(ctx, UserType::Player);
 		Validate::isQuizExists(quiz);
+		Validate::isApproved(quiz);
 
 	}
 	catch (std::invalid_argument ex) {

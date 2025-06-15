@@ -22,8 +22,8 @@ void QuizService::printPendingQuizzes(const Context& ctx) {
 	for (size_t i = 0; i < ctx.quizzes.size(); i++) {
 		if (ctx.quizzes[i].active() && !ctx.quizzes[i].approved()) {
 			User* user = ctx.users.findUser(ctx.quizzes[i].creator());
-
-			std::cout << "[" << ctx.quizzes[i].id() << "] " << ctx.quizzes[i].name() << " by " << user->getUsername() << std::endl;
+			std::cout << "   ";
+			std::cout << "[id " << ctx.quizzes[i].id() << "] " << ctx.quizzes[i].name() << " by " << user->getUsername() << std::endl;
 		}
 	}
 }
@@ -91,12 +91,19 @@ MyString QuizService::getQuizCreatorName(const Context& ctx, const Quiz& quiz) {
 
 void QuizService::printQuizzesInfo(const Context& ctx, const Vector<Quiz>& quizzes) {
 
+	bool empty = true;
+
 	for (size_t i = 0; i < quizzes.size(); i++) {
 		if (quizzes[i].approved()){
+			empty = false;
 			std::cout << "    ";
 			std::cout << quizzes[i].id() << " | " << quizzes[i].name() << " | " << getQuizCreatorName(ctx, quizzes[i])
 				<< " | " << quizzes[i].questionsCount() << " Questions | " << getQuizLikes(ctx, quizzes[i].id()) << " Likes" << std::endl;
 		}
+	}
+
+	if (empty){
+		std::cout << NoDataToDisplay << std::endl;
 	}
 }
 

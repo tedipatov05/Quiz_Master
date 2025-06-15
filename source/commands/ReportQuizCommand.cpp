@@ -24,6 +24,7 @@ void ReportQuizCommand::execute() {
 		Validate::isUserNotExists(user);
 		Validate::isAlreadyDeleted(quiz);
 		Validate::isQuizExists(quiz);
+		Validate::isApproved(quiz);
 	}
 	catch (std::invalid_argument ex) {
 		std::cout << ex.what() << std::endl;

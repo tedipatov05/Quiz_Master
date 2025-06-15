@@ -1,3 +1,2 @@
-﻿  Quiz.cpp
-D:\ФМИ\Quiz_Master\Quiz_Master\source\quizes\Quiz.cpp(57,43): warning C4267: 'argument': conversion from 'size_t' to 'int', possible loss of data
+﻿  UserService.cpp
   Quiz_Master.vcxproj -> D:\ФМИ\Quiz_Master\x64\Debug\Quiz_Master.exe

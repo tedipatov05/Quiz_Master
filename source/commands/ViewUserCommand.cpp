@@ -21,6 +21,7 @@ void ViewUserCommand::execute(){
 		Validate::isLoggedIn(ctx);
 		Validate::checkPermission(ctx, UserType::Player);
 		Validate::isUserNotExists(user);
+		Validate::isBanned(user);
 	}
 	catch (std::invalid_argument ex){
 		std::cout << ex.what() << std::endl;

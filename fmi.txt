@@ -1,0 +1,30 @@
+                                                                                         FMI quiz - 5 Questions
+                                                                                        By Ivan Iavnov @vankata
+1) Ternary operator can be overloaded in C++. (10 points) 
+Enter your answer (True/False): 
+
+2) What is the intersection points of 3x-2y+1=0 and 2x=y+5? (15 points)
+  A.  (2.5, 0)
+  B.  (11, -17)
+  C.  (11, 17)
+  D.  (19, -10)
+Correct answer: 
+
+3) Which of the following languages are regular? (20 points)
+  A.  L1
+  B.  L2
+  C.  L3
+  D.  L4
+  E.  L5
+Enter your answer here (eg. A, B, ...): 
+
+4) Which sorting algorithm has O(n+k) time complexity? (2 words) (25 points)
+Enter your answer here : 
+
+5) Match every function with its Maclaurin Series formula.
+A. sin(x)           a. 1+x+x^2/2...
+B. ln(1+x)          b. x-x^3/6
+C. cos(x)           c. x-x^2/2...
+D. e^x              
+Enter your answer here (eg. (A, b), (C, d)): 
+

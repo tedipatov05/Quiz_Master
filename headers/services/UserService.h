@@ -15,5 +15,6 @@ public:
 	static int getCreatedQuizzesCount(const Context& ctx, int userId);
 	static int getAttemptsCountInMode(const Context& ctx, int userId, QuizMode mode);
 	static Vector<Quiz> getUserQuizzes(const Context& ctx, int userId);
+	static void printAvailableCommands(const Context& ctx);
 };
 

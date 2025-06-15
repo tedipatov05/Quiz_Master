@@ -1,5 +1,7 @@
 #include "../../headers/commands/CommandFactory.h"
 
+#include "../../headers/commands/HelpCommand.h"
+
 
 Command* CommandFactory::generateCommand(const MyString& buffer, Context& ctx) {
 	Vector<MyString> data = Command::split(buffer, " ");
@@ -76,6 +78,9 @@ Command* CommandFactory::generateCommand(const MyString& buffer, Context& ctx) {
 	}
 	else if (cmd == "report-quiz"){
 		return new ReportQuizCommand(buffer, ctx);
+	}
+	else if (cmd == "help"){
+		return new HelpCommand(buffer, ctx);
 	}
 	else{
 		return nullptr;

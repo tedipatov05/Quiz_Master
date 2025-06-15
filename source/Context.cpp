@@ -134,6 +134,7 @@ Context* Context::getInstance() {
 
 Context::~Context() {
 	if (areUsersChanged) {
+		this->users.writeToBinaryFile(userFile);
 	}
 }
 

@@ -127,6 +127,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\commands\HelpCommand.cpp" />
     <ClCompile Include="source\commands\CommandFactory.cpp" />
     <ClCompile Include="source\commands\ReportQuizCommand.cpp" />
     <ClCompile Include="source\commands\SaveQuizCommand.cpp" />
@@ -250,6 +251,7 @@
     <ClInclude Include="headers\commands\StartQuizCommand.h" />
     <ClInclude Include="headers\commands\SaveQuizCommand.h" />
     <ClInclude Include="headers\commands\ReportQuizCommand.h" />
+    <ClInclude Include="headers\commands\HelpCommand.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

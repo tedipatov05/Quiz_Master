@@ -101,7 +101,7 @@ void MultipleChoiceQuestion::print(std::ostream& os) const {
 		ch++;
 	}
 
-	std::cout << "Enter your answer here [ A, ..]: ";
+	os << "Enter your answer here (eg. A, B, ...): ";
 
 }
 

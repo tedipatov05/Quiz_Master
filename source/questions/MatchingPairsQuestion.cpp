@@ -205,9 +205,7 @@ void MatchingPairsQuestion::print(std::ostream& os) const {
 		right++;
 	}
 
-	std::cout << "Enter your answer here: ";
-
-
+	os << "Enter your answer here (eg. (A, b), (C, d)): ";
 }
 
 Question* MatchingPairsQuestion::clone() const {

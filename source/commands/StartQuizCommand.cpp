@@ -14,7 +14,7 @@ void StartQuizCommand::execute() {
 	User* user = ctx.users.findUser(ctx.currentUserId);
 
 	Vector<MyString> data = split(buffer, " ");
-	if (data.size() > 4) {
+	if (data.size() < 3) {
 		std::cout << InvalidFormat << std::endl;
 		return;
 	}
@@ -28,8 +28,9 @@ void StartQuizCommand::execute() {
 		Validate::isLoggedIn(ctx);
 		Validate::checkPermission(ctx, UserType::Player);
 		Validate::isUserNotExists(user);
-		Validate::isAlreadyDeleted(quiz);
 		Validate::isQuizExists(quiz);
+		Validate::isAlreadyDeleted(quiz);
+		Validate::isApproved(quiz);
 		QuizService::startQuiz(ctx, user, toInt(data[1]), fromStringToMode(data[2]), isShuffle);
 
 	}

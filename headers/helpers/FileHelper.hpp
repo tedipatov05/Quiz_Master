@@ -34,7 +34,7 @@ int findPositionInFile(const MyString& filename, const T& oldObject) {
 	int pos = -1;
 
 	while (!ifs.eof()) {
-		size_t startPos = ifs.tellg();
+		int startPos = ifs.tellg();
 
 		T obj;
 		obj.readFromBinaryFile(ifs);
