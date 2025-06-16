@@ -50,18 +50,6 @@ void SingleChoiceQuestion::printCorrectAnswer(std::ostream& os) const {
 	os << InputCorrectAnswer << this->_correctAnswer << std::endl;
 }
 
-//int SingleChoiceQuestion::start() const{
-//
-//	this->print(std::cout);
-//	std::cout << "Enter your answer here (A,B,C,D): ";
-//
-//	MyString answer;
-//	std::cin >> answer;
-//
-//	return isCorrectAnswer(answer) ? this->_points : 0;
-//}
-
-
 
 void SingleChoiceQuestion::readFromBinaryFile(std::ifstream& ifs) {
 	_answers.clear();

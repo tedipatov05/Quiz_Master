@@ -20,7 +20,7 @@ int Question::start() const{
 			return res;
 
 		}
-		catch (std::invalid_argument e){
+		catch (std::invalid_argument& e){
 			std::cout << e.what() << std::endl;
 			std::cout << "Enter your answer here: ";
 		}

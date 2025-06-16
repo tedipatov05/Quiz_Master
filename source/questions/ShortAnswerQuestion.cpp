@@ -35,17 +35,6 @@ Question* ShortAnswerQuestion::clone() const {
 void ShortAnswerQuestion::printCorrectAnswer(std::ostream& os) const{
 	os << InputCorrectAnswer << this->_correctAnswer << std::endl;
 }
-//
-//int ShortAnswerQuestion::start() const{
-//
-//	this->print(std::cout);
-//	MyString answer;
-//	std::cin >> answer;
-//
-//	return isCorrectAnswer(answer) ? this->_points : 0;
-//}
-//
-
 
 void ShortAnswerQuestion::print(std::ostream& os) const {
 	int words = _correctAnswer.countCharacter(' ') + 1;

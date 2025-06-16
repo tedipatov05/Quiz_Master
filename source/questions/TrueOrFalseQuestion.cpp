@@ -48,15 +48,6 @@ void TrueOrFalseQuestion::printCorrectAnswer(std::ostream& os) const{
 	os << InputCorrectAnswer << this->_correctAnswer << std::endl;
 }
 
-
-//int TrueOrFalseQuestion::start() const{
-//	this->print(std::cout);
-//
-//	MyString answer = 
-//
-//}
-
-
 int TrueOrFalseQuestion::checkAnswer(const MyString& userAnswer) const{
 	return this->_correctAnswer.toLower() == userAnswer.toLower() ? this->_points : 0;
 }
