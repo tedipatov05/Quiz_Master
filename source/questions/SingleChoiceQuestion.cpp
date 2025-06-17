@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Validate.h"
 
 SingleChoiceQuestion::SingleChoiceQuestion(const MyString& description, int points, const Vector<MyString>& answers, const MyString& correctAnswer)
 	: Question(description, points), _answers(answers), _correctAnswer(correctAnswer) {
@@ -11,22 +12,21 @@ SingleChoiceQuestion::SingleChoiceQuestion(const MyString& description, int poin
 
 void SingleChoiceQuestion::read() {
 	_answers.clear();
-
-	std::cout << EnterDescription;
-	std::cin >> this->_desription;
+	Validate::validateInput(this->_desription, EnterDescription);
 
 	char ch = 'A';
 
 	for (size_t i = 0; i < 4; i++) {
-		std::cout << "Enter answer " << ch << ": ";
+		MyString message = "Enter answer " + MyString(ch) + ": ";
 		MyString answer;
-		std::cin >> answer;
+		Validate::validateInput(answer, message);
+
 		_answers.push_back(answer);
 		ch++;
 	}
 
-	std::cout << SingleChoiceCorrectAnswer;
-	std::cin >> this->_correctAnswer;
+
+	Validate::validateInput(this->_correctAnswer, SingleChoiceCorrectAnswer);
 
 	std::cout << EnterPoints;
 	std::cin >> this->_points;

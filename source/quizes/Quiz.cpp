@@ -5,6 +5,7 @@
 #include "../../headers/helpers/Vector.hpp"
 #include "../../headers/helpers/Shuffle.h"
 #include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Validate.h"
 #include "../../headers/quizes/QuizAttempt.h"
 
 Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false), quizId(quizId), isActive(true), maxPoints(0) {
@@ -12,8 +13,9 @@ Quiz::Quiz(int creatorId, int quizId) : creatorId(creatorId), isApproved(false),
 }
 
 void Quiz::read() {
-	std::cout << EnterQuizTitle;
-	std::cin >> this->quizName;
+
+	Validate::validateInput(this->quizName, EnterQuizTitle);
+
 	std::cout << EnterQuestionsCount;
 	size_t questionsCount = 0;
 	std::cin >> questionsCount;
@@ -24,13 +26,13 @@ void Quiz::read() {
 		std::cout << "Enter question " << i + 1 << " type (T/F, SC, MC, ShA, MP): ";
 		std::cin >> type;
 
-		if (type.isEmpty()){
+		if (type.isEmpty()) {
 			std::cout << InvalidFormat << std::endl;
 			return;
 		}
 
 		Question* question = QuestionFactory::createQuestion(fromStringToQuestionType(type));
-		if (!question){
+		if (!question) {
 			std::cout << InvalidFormat << std::endl;
 			return;
 		}
@@ -120,7 +122,7 @@ void Quiz::readFromBinaryFile(std::ifstream& ifs) {
 
 QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 
-	if (!this->isActive || !this->isApproved){
+	if (!this->isActive || !this->isApproved) {
 		throw std::invalid_argument(QuizUnavailable.data());
 	}
 
@@ -130,11 +132,9 @@ QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 		nums.push_back(i);
 	}
 
-
 	if (isShuffle) {
 		shuffle(nums);
 	}
-
 
 	for (size_t i = 0; i < this->_questionsRepo.size(); i++) {
 		result += this->_questionsRepo[nums[i]].start();
@@ -148,7 +148,7 @@ QuizAttempt Quiz::start(QuizMode mode, bool isShuffle, int userId) {
 
 	std::cout << "Your quiz score is " << result << "/" << this->maxPoints << std::endl;
 
-	if (mode == QuizMode::Test){
+	if (mode == QuizMode::Test) {
 		std::cout << TestModeInfo << std::endl;
 	}
 
@@ -165,38 +165,38 @@ void Quiz::writeCenteredRow(std::ostream& ofs, const MyString& line) const {
 }
 
 
-int Quiz::questionsCount() const{
+int Quiz::questionsCount() const {
 	return (int)_questionsRepo.size();
 }
 
 
-int Quiz::id() const{
+int Quiz::id() const {
 	return this->quizId;
 }
 
-bool Quiz::approved() const{
+bool Quiz::approved() const {
 	return isApproved;
 }
 
-bool Quiz::active() const{
+bool Quiz::active() const {
 	return isActive;
 }
 
-int Quiz::creator() const{
+int Quiz::creator() const {
 	return this->creatorId;
 }
 
-void Quiz::reject(){
+void Quiz::reject() {
 	this->isActive = false;
 	this->isApproved = false;
 }
 
-MyString Quiz::name() const{
+MyString Quiz::name() const {
 	return this->quizName;
 }
 
 
-bool operator==(const Quiz& lhs, const Quiz& rhs){
+bool operator==(const Quiz& lhs, const Quiz& rhs) {
 	return lhs.id() == rhs.id();
 }
 

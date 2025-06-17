@@ -21,5 +21,6 @@ public:
 	static void isLoggedIn(const Context& ctx);
 	static void isBanned(const User* user);
 
+	static void validateInput(MyString& input, const MyString& message);
 };
 

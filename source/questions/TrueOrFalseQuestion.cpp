@@ -2,6 +2,7 @@
 #include <iostream>
 
 #include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Validate.h"
 #include "../../headers/questions/TrueOrFlaseQuestion.h"
 
 TrueOrFalseQuestion::TrueOrFalseQuestion(const MyString& description, int points, const MyString& correctAnswer)
@@ -24,10 +25,11 @@ void TrueOrFalseQuestion::writeToBinaryFile(std::ofstream& ofs) const {
 	this->_correctAnswer.writeToBinaryFile(ofs);
 }
 void TrueOrFalseQuestion::read() {
-	std::cout << EnterDescription;
-	std::cin >> this->_desription;
-	std::cout << TrueOrFalseCorrectAnswer;
-	std::cin >> this->_correctAnswer;
+	
+	Validate::validateInput(this->_desription, EnterDescription);
+
+	Validate::validateInput(this->_correctAnswer, TrueOrFalseCorrectAnswer);
+
 	std::cout << EnterPoints;
 	std::cin >> this->_points;
 }

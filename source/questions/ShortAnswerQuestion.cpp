@@ -3,6 +3,7 @@
 #include "../../headers/questions/ShortAnswerQuestion.h"
 
 #include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Validate.h"
 
 ShortAnswerQuestion::ShortAnswerQuestion(const MyString& description, int points, const MyString& answer)
 	: Question(description, points), _correctAnswer(answer) {
@@ -49,11 +50,10 @@ int ShortAnswerQuestion::checkAnswer(const MyString& userAnswer) const {
 
 
 void ShortAnswerQuestion::read() {
-	std::cout << EnterDescription;
-	std::cin >> this->_desription;
 
-	std::cout << ShACorrectAnswer;
-	std::cin >> this->_correctAnswer;
+	Validate::validateInput(this->_desription, EnterDescription);
+	
+	Validate::validateInput(this->_correctAnswer, ShACorrectAnswer);
 
 	std::cout << EnterPoints;
 	std::cin >> this->_points;

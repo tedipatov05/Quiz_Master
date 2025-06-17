@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include "../../headers/helpers/SystemMessages.h"
+#include "../../headers/helpers/Validate.h"
 
 MatchingPairsQuestion::MatchingPairsQuestion(const MyString& description, int points, const Vector<MyString>& leftColumn, const Vector<MyString>& rightColumn,
                                              const Vector<Pair<MyString, MyString>>& correctAnswer) : Question(description, points) {
@@ -19,8 +20,7 @@ QuestionType MatchingPairsQuestion::type() const {
 }
 
 void MatchingPairsQuestion::read() {
-	std::cout << EnterDescription;
-	std::cin >> this->_desription;
+	Validate::validateInput(this->_desription, EnterDescription);
 
 	this->readColumn('A', _leftColumn, "left column");
 	this->readColumn('a', _rightColumn, "right column");
@@ -50,9 +50,9 @@ void MatchingPairsQuestion::readColumn(char ch, Vector<MyString>& column, const 
 	std::cin.ignore();
 
 	for (size_t i = 0; i < cout; i++) {
-		std::cout << "Enter value " << ch << ": ";
+		MyString message =  "Enter value " + MyString(ch) + ": ";
 		MyString str;
-		std::cin >> str;
+		Validate::validateInput(str, message);
 		column.push_back(str);
 		ch++;
 	}
@@ -80,6 +80,7 @@ void MatchingPairsQuestion::splitAnswer(const MyString& input, Vector<Pair<MyStr
 }
 
 bool MatchingPairsQuestion::isInValidFormat(const MyString& input) const {
+
 	std::stringstream ss(input.data());
 	char ch;
 	char first, second;

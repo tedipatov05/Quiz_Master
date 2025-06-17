@@ -1,8 +1,8 @@
 #include "../../headers/helpers/Validate.h"
 
-void Validate::removeUnnecessarySpaces(MyString& input){
-	const char* raw = input.data();  
-	size_t len = input.size();      
+void Validate::removeUnnecessarySpaces(MyString& input) {
+	const char* raw = input.data();
+	size_t len = input.size();
 
 	MyString result;
 	bool inSpace = true;
@@ -22,78 +22,93 @@ void Validate::removeUnnecessarySpaces(MyString& input){
 		}
 	}
 
-	
+
 	if (!result.isEmpty() && result[result.size() - 1] == ' ')
 		result.pop_back();
 
 	input = result;
 }
 
-void Validate::areEqual(const MyString& str1, const MyString& str2, const MyString& errorMessage){
-	if (str1 != str2){
+void Validate::areEqual(const MyString& str1, const MyString& str2, const MyString& errorMessage) {
+	if (str1 != str2) {
 		throw std::invalid_argument(errorMessage.data());
 	}
 }
 
-void Validate::isUserAlreadyExists(const MyString& username, const Context& ctx){
+void Validate::isUserAlreadyExists(const MyString& username, const Context& ctx) {
 	User* user = ctx.users.findByUsername(username);
 
-	if (user != nullptr){
+	if (user != nullptr) {
 		throw std::invalid_argument(AlreadyExists.data());
 	}
-	
+
 }
 
-void Validate::isUserNotExists(const User* user){
+void Validate::isUserNotExists(const User* user) {
 
-	if (user == nullptr){
+	if (user == nullptr) {
 		throw std::invalid_argument(UserNotExists.data());
 	}
 
 }
 
-void Validate::isAlreadyApproved(const Quiz* quiz){
-	if (quiz->approved()){
+void Validate::isAlreadyApproved(const Quiz* quiz) {
+	if (quiz->approved()) {
 		throw std::invalid_argument(QuizAlreadyApproved.data());
 	}
 }
 
-void Validate::isAlreadyDeleted(const Quiz* quiz){
-	if (!quiz->active()){
+void Validate::isAlreadyDeleted(const Quiz* quiz) {
+	if (!quiz->active()) {
 		throw std::invalid_argument(QuizDeleted.data());
 	}
 }
 
-void Validate::isQuizExists(const Quiz* quiz){
-	if (!quiz){
+void Validate::isQuizExists(const Quiz* quiz) {
+	if (!quiz) {
 		throw std::invalid_argument(QuizNoExists.data());
 	}
 }
 
-void Validate::isApproved(const Quiz* quiz){
-	if (!quiz->approved()){
+void Validate::isApproved(const Quiz* quiz) {
+	if (!quiz->approved()) {
 		throw std::invalid_argument(QuizNotApproved.data());
 	}
 }
 
 
 
-void Validate::checkPermission(const Context& ctx, UserType type){
-	if (ctx.currentUserType != type){
+void Validate::checkPermission(const Context& ctx, UserType type) {
+	if (ctx.currentUserType != type) {
 		throw std::invalid_argument(NotAllowed.data());
 	}
 }
 
-void Validate::isLoggedIn(const Context& ctx){
-	if (ctx.currentUserId == -1){
+void Validate::isLoggedIn(const Context& ctx) {
+	if (ctx.currentUserId == -1) {
 		throw std::invalid_argument(NotLoggedIn.data());
 	}
 }
 
-void Validate::isBanned(const User* user){
-	if (user->banned()){
+void Validate::isBanned(const User* user) {
+	if (user->banned()) {
 		throw std::invalid_argument(Banned.data());
 	}
+}
+
+void Validate::validateInput(MyString& input, const MyString& message) {
+	std::cout << message;
+
+	while (true) {
+		std::cin >> input;
+
+		if (!input.isEmpty()) {
+			break;
+		}
+
+		std::cout << message;
+	}
+
 }
 
 

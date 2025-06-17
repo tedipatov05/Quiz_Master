@@ -2,7 +2,7 @@
 #include "../../headers/helpers/Utils.h"
 #include "../../headers/helpers/Constants.h"
 #include <istream>
-#pragma warning(disable : 4996) // Disable deprecation warning for strcpy
+#pragma warning(disable : 4996) 
 
 
 MyString::MyString() : MyString("") {}
