@@ -33,43 +33,6 @@
 int main()
 {
 
-	/*Quiz quiz = Quiz(100, 1);
-	quiz.read();
-	std::ofstream ofs(quizzesFile.data(), std::ios::binary);
-
-	quiz.writeToBinaryFile(ofs);
-
-	ofs.close();
-	*/
-
-	//User* admin = new Admin("admin", "adminov", "adminov1", "1234", 101);
-	//User* player = new Player("test", "testov", "player1", "12345", 100);
-	//std::ofstream ostream(userFile.data(), std::ios::binary);
-	//admin->writeToBinaryFile(ostream);
-	//player->writeToBinaryFile(ostream);
-
-	//ostream.close();
-
-
-	//Context* ctx = Context::getInstance();
-
-	//LoginCommand* sign_up_command = new LoginCommand("login player1 12345", *ctx);
-
-	//sign_up_command->execute();
-
-	////BanUserCommand* ban = new BanUserCommand("ban player1", *ctx);
-
-	////ban->execute();
-
-	//ChallengesCommand* cmd = new ChallengesCommand("challenges", *ctx);
-
-	//cmd->execute();
-
-
-	//delete sign_up_command;
-	////delete ban;
-	//delete cmd;
-	//delete ctx;
 
 	std::cout << "Welcome to my Quiz Master App." << std::endl;
 
@@ -95,13 +58,5 @@ int main()
 		}
 
 	}
-
-
-	
-
-	//delete context;
-
-
-	
 
 }
